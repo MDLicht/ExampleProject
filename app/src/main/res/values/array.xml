@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_recycler_items">
+        <item>@string/item_title_social_login</item>
+        <item>@string/item_title_rx_basic</item>
+        <item>@string/item_title_databinding_example</item>
+    </string-array>
+
+    <string-array name="databinding_example_spinner_entries">
+        <item>RED</item>
+        <item>BLUE</item>
+        <item>BLACK</item>
+        <item>YELLOW</item>
+        <item>GREEN</item>
+    </string-array>
+</resources>

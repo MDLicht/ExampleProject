@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ExampleProject</string>
+    <string name="item_title_social_login">Social Login</string>
+    <string name="item_title_rx_basic">Rx Basic</string>
+    <string name="item_title_databinding_example">Databinding Example</string>
+
+    <string name="social_tv_default">Logout State</string>
+    <string name="social_tv_logint_format">%s Login State</string>
+
+    <string name="rxbasic_et_hint">Input User Name</string>
+    <string name="rxbasic_msg_search_failed">GitData Search Failed</string>
+    <string name="rxbasic_profile_link_title">프로필 보기</string>
+    <string name="rxbasic_loading">Loading...</string>
+    <string name="rxbasic_empty_dataset">해당 사용자의 GitHub를 찾을 수 없습니다.</string>
+
+    <string name="databinding_example_btn_dec">-</string>
+    <string name="databinding_example_btn_inc">+</string>
+    <string name="databinding_example_explain_1">Simple Counter, if under 0, text color is red</string>
+    <string name="databinding_example_explain_2">Input display immediately on TextView</string>
+    <string name="databinding_example_explain_3">TextView color chnaged by spinner</string>
+</resources>
