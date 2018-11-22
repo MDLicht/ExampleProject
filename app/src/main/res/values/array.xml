@@ -4,6 +4,7 @@
         <item>@string/item_title_social_login</item>
         <item>@string/item_title_rx_basic</item>
         <item>@string/item_title_databinding_example</item>
+        <item>@string/item_title_simple_translator</item>
     </string-array>
 
     <string-array name="databinding_example_spinner_entries">

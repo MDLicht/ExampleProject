@@ -16,6 +16,12 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        buildConfigField "String", "PapagoTranslatorBaseUrl", papago_translator_base_url
+        buildConfigField "String", "PapagoTranslatorClientId", papago_translator_client_id
+        buildConfigField "String", "PapagoTranslatorClientSecret", papago_translator_client_secret
+
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
