@@ -21,4 +21,7 @@
     <string name="databinding_example_explain_3">TextView color chnaged by spinner</string>
 
     <string name="simple_translator_hint_input">Input Korean</string>
+    <string name="simple_translator_copy_clipboard">Translation Result</string>
+    <string name="simple_translator_msg_copy_clipboard">Result Copied</string>
+    <string name="simple_translator_msg_empty_text">Result is empty</string>
 </resources>
