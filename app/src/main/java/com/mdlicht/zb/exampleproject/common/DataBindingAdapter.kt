@@ -11,9 +11,12 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.gms.maps.SupportMapFragment
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.adapter.DatabindingExampleSpinnerAdapter
 import com.mdlicht.zb.exampleproject.databinding.model.Color
+import com.mdlicht.zb.exampleproject.googlemap.model.Response
+import com.mdlicht.zb.exampleproject.googlemap.viewmodel.GoogleMapViewModel
 import com.mdlicht.zb.exampleproject.rxbasic.adapter.RxBasicRecyclerAdapter
 import com.mdlicht.zb.exampleproject.rxbasic.model.GitHubData
 

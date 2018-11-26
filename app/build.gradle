@@ -21,6 +21,9 @@ android {
         buildConfigField "String", "PapagoTranslatorClientId", papago_translator_client_id
         buildConfigField "String", "PapagoTranslatorClientSecret", papago_translator_client_secret
 
+        buildConfigField "String", "PublicBicycleBaseUrl", public_bicycle_base_url
+        buildConfigField "String", "PublicBicycleKey", public_bicycle_key
+
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -63,6 +66,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation 'com.facebook.android:facebook-android-sdk:4.38.1'
+
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
 
 //    kapt "com.android.databinding:compiler:3.1.4"
 }

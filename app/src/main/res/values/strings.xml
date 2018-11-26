@@ -4,6 +4,7 @@
     <string name="item_title_rx_basic">Rx Basic</string>
     <string name="item_title_databinding_example">Databinding Example</string>
     <string name="item_title_simple_translator">Simple Translator</string>
+    <string name="item_title_google_map">Google Map</string>
 
     <string name="social_tv_default">Logout State</string>
     <string name="social_tv_logint_format">%s Login State</string>
