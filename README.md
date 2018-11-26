@@ -3,13 +3,11 @@ Examples
 ========
 
 1. Social Login
----------------
 - Google, Facebook login with firebase
 
 <hr/>
 
 2. RxBasic
-----------
 - Load Github user's profile and repositories by searching
 - List repos sorting by star count (DESC)
 <div>
@@ -19,7 +17,6 @@ Examples
 <hr/>
 
 3. Databinding Example
-----------------------
 - Simple counter (If count is under 0, text color become red)
 - TextView connected with EditText Input
 - TextView connected with AppcompatSpinner
@@ -30,7 +27,6 @@ Examples
 <hr/>
 
 4. Simple Translator
---------------------
 - With Papago translation API
 - Copy translation result with Long click
 <div>
@@ -40,7 +36,6 @@ Examples
 <hr/>
 
 5. Google Map
--------------
 - With Seoul public bicycle API
 - Clustering
 - If cluster item size is 1, Show alert dialog when clicked
