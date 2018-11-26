@@ -22,7 +22,8 @@ Examples
 - Clustering
 - If cluster item size is 1, Show alert dialog when clicked
 - If cluster item size is over 1, Zoom in 1 level
-
-![screenshot_20181126-174751_exampleproject](https://user-images.githubusercontent.com/12404118/49002939-40451580-f1a4-11e8-9836-f670100a5a45.jpg)
-![screenshot_20181126-174800_exampleproject](https://user-images.githubusercontent.com/12404118/49003020-6b2f6980-f1a4-11e8-91a6-2d4567365432.jpg)
+<div>
+<img src="https://user-images.githubusercontent.com/12404118/49002939-40451580-f1a4-11e8-9836-f670100a5a45.jpg" width="200"></img>  
+<img src="https://user-images.githubusercontent.com/12404118/49003020-6b2f6980-f1a4-11e8-91a6-2d4567365432.jpg" width="200"></img>
+</div>
 
