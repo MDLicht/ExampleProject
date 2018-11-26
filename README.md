@@ -7,15 +7,24 @@ Examples
 2. RxBasic
 - Load Github user's profile and repositories by searching
 - List repos sorting by star count (DESC)
+<div>
+<img src="https://user-images.githubusercontent.com/12404118/49003544-75059c80-f1a5-11e8-9bf5-cbe5ea0db38d.jpg" width="250"></img>
+</div>
 
 3. Databinding Example
 - Simple counter (If count is under 0, text color become red)
 - TextView connected with EditText Input
 - TextView connected with AppcompatSpinner
+<div>
+<img src="https://user-images.githubusercontent.com/12404118/49003519-6919da80-f1a5-11e8-9397-e401d96e7cd2.jpg" width="250"></img>
+</div>
 
 4. Simple Translator
 - With Papago translation API
 - Copy translation result with Long click
+<div>
+<img src="https://user-images.githubusercontent.com/12404118/49003481-5c958200-f1a5-11e8-9da0-7c0336707576.jpg" width="250"></img>
+</div>
 
 5. Google Map
 - With Seoul public bicycle API
