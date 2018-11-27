@@ -1,38 +1,39 @@
 package com.mdlicht.zb.exampleproject.googlemap.viewmodel
 
-import android.app.AlertDialog
+import android.Manifest
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.OnLifecycleEvent
 import android.arch.lifecycle.ViewModel
+import android.content.pm.PackageManager
 import android.databinding.ObservableArrayList
-import android.databinding.ObservableField
 import android.databinding.ObservableList
+import android.location.Location
+import android.location.LocationListener
+import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.util.Log
-import com.google.android.gms.maps.CameraUpdate
+import android.view.View
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.maps.android.clustering.Cluster
 import com.google.maps.android.clustering.ClusterManager
 import com.mdlicht.zb.exampleproject.googlemap.api.RetrofitUtil
-import com.mdlicht.zb.exampleproject.googlemap.model.Response
 import com.mdlicht.zb.exampleproject.googlemap.model.Row
 import io.reactivex.Observable
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListener<Row>, ClusterManager.OnClusterClickListener<Row> {
+class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListener<Row>,
+    ClusterManager.OnClusterClickListener<Row>, LocationListener {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
     var map: GoogleMap? = null
     lateinit var clusterManager: ClusterManager<Row>
     private val stationData: ObservableList<Row> = ObservableArrayList()
     val clickResult = MutableLiveData<Row>()
+    val gpsClick = MutableLiveData<Array<String>>()
 
     init {
         loadStationList()
@@ -80,7 +81,7 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
     }
 
     override fun onClusterClick(p0: Cluster<Row>?): Boolean {
-        if(p0?.size == 1) {
+        if (p0?.size == 1) {
             clickResult.postValue(p0.items.first())
         } else {
             map?.let {
@@ -88,5 +89,25 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
             }
         }
         return true
+    }
+
+    fun onGpsClick(view: View) {
+        gpsClick.postValue(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION))
+    }
+
+    override fun onLocationChanged(location: Location?) {
+        map?.moveCamera(CameraUpdateFactory.newLatLng(LatLng(location?.latitude!!, location?.longitude!!)))
+    }
+
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+        // DO NOTHING
+    }
+
+    override fun onProviderEnabled(provider: String?) {
+        // DO NOTHING
+    }
+
+    override fun onProviderDisabled(provider: String?) {
+        // DO NOTHING
     }
 }
