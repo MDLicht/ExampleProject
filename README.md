@@ -40,8 +40,18 @@ Examples
 - Clustering
 - If cluster item size is 1, Show alert dialog when clicked
 - If cluster item size is over 1, Zoom in 1 level
+- Moving camera by using gps
 <div>
 <img src="https://user-images.githubusercontent.com/12404118/49002939-40451580-f1a4-11e8-9836-f670100a5a45.jpg" width="250"></img>  
 <img src="https://user-images.githubusercontent.com/12404118/49003020-6b2f6980-f1a4-11e8-91a6-2d4567365432.jpg" width="250"></img>
+</div>
+
+<hr/>
+
+6. RecyclerView with Ad
+- RecyclerView Sample with Ad Item (NOT ADMOB. THIS EXAMPLE DOESN'T USE ADMOB)
+- Ad Item displayed below 5 Items
+<div>
+  <img src="https://user-images.githubusercontent.com/12404118/49172135-8ad0b880-f383-11e8-9e4b-91478c93018f.jpg" width="250"></img>  
 </div>
 
