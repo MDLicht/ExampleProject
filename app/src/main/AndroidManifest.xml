@@ -16,10 +16,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDR3ASP6QNA2CtSzKkAhGdueSq6ccUi--o"/>
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyDR3ASP6QNA2CtSzKkAhGdueSq6ccUi--o"/>
 
         <activity android:name=".main.activity.MainActivity">
             <intent-filter>
@@ -37,6 +36,8 @@
         <activity android:name=".simpletranslator.activity.SimpleTranslatorActivity">
         </activity>
         <activity android:name=".googlemap.activity.GoogleMapActivity">
+        </activity>
+        <activity android:name=".recyclerviewwithad.activity.RecyclerViewWithAdActivity">
         </activity>
     </application>
 

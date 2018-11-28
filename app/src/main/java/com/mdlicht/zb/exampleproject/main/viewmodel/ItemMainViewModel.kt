@@ -6,6 +6,7 @@ import android.view.View
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
+import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWithAdActivity
 import com.mdlicht.zb.exampleproject.rxbasic.activity.RxBasicActivity
 import com.mdlicht.zb.exampleproject.simpletranslator.activity.SimpleTranslatorActivity
 import com.mdlicht.zb.exampleproject.socialsnslogin.activity.SocialLoginActivity
@@ -28,6 +29,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_google_map) -> {
                 context.startActivity(Intent(context, GoogleMapActivity::class.java))
+            }
+            context.getString(R.string.item_title_recyclerview_with_ad) -> {
+                context.startActivity(Intent(context, RecyclerViewWithAdActivity::class.java))
             }
         }
     }

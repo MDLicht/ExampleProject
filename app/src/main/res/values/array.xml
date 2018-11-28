@@ -6,6 +6,7 @@
         <item>@string/item_title_databinding_example</item>
         <item>@string/item_title_simple_translator</item>
         <item>@string/item_title_google_map</item>
+        <item>@string/item_title_recyclerview_with_ad</item>
     </string-array>
 
     <string-array name="databinding_example_spinner_entries">

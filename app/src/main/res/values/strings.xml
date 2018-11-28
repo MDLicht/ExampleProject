@@ -5,6 +5,7 @@
     <string name="item_title_databinding_example">Databinding Example</string>
     <string name="item_title_simple_translator">Simple Translator</string>
     <string name="item_title_google_map">Google Map</string>
+    <string name="item_title_recyclerview_with_ad">RecyclerView With Ad</string>
 
     <string name="social_tv_default">Logout State</string>
     <string name="social_tv_logint_format">%s Login State</string>
@@ -29,4 +30,6 @@
     <string name="google_map_msg_permission_denied">Permission denied</string>
     <string name="google_map_title_location_service_setting">Location service setting</string>
     <string name="google_map_msg_location_service_setting">Use GPS service?</string>
+
+    <string name="recyclerview_with_ad_ad_text">Sponsored</string>
 </resources>
