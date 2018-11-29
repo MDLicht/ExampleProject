@@ -55,3 +55,12 @@ Examples
   <img src="https://user-images.githubusercontent.com/12404118/49172135-8ad0b880-f383-11e8-9e4b-91478c93018f.jpg" width="250"></img>  
 </div>
 
+<hr/>
+
+7. ConstraintLayout with ConstraintSet
+- Swap ConstraintSet when button on bottom clicked
+- Transition Animation and RecyclerView setting
+<div>
+  <img src="https://user-images.githubusercontent.com/12404118/49241455-3a249280-f44b-11e8-9bf8-b8121a63714a.jpg" width="250"></img>
+  <img src="https://user-images.githubusercontent.com/12404118/49241469-46105480-f44b-11e8-8605-7fe440eb23a0.jpg" width="250"></img>
+</div>
