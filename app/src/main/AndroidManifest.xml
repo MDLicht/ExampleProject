@@ -39,6 +39,8 @@
         </activity>
         <activity android:name=".recyclerviewwithad.activity.RecyclerViewWithAdActivity">
         </activity>
+        <activity android:name=".constraintlayout.activity.ConstraintLayoutActivity">
+        </activity>
     </application>
 
 </manifest>

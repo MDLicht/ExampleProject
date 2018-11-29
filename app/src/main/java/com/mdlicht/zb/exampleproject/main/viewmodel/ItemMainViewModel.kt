@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.view.View
 import com.mdlicht.zb.exampleproject.R
+import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutActivity
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
 import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWithAdActivity
@@ -32,6 +33,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_recyclerview_with_ad) -> {
                 context.startActivity(Intent(context, RecyclerViewWithAdActivity::class.java))
+            }
+            context.getString(R.string.item_title_constraintlayout) -> {
+                context.startActivity(Intent(context, ConstraintLayoutActivity::class.java))
             }
         }
     }
