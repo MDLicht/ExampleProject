@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.view.View
 import com.mdlicht.zb.exampleproject.R
+import com.mdlicht.zb.exampleproject.collapsingtoolbar.activity.CollapsingToolbarActivity
 import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutActivity
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
@@ -36,6 +37,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_constraintlayout) -> {
                 context.startActivity(Intent(context, ConstraintLayoutActivity::class.java))
+            }
+            context.getString(R.string.item_title_collapsing_toolbar) -> {
+                context.startActivity(Intent(context, CollapsingToolbarActivity::class.java))
             }
         }
     }
