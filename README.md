@@ -68,7 +68,7 @@ Examples
 <hr/>
 
 8. Collapsing Toolbar with Constraint
-- Reference (DroidCon SF 2017) : https://www.youtube.com/watch?v=8lAXJ5NFXTM
+- Reference (DroidCon SF 2017) : https://youtu.be/8lAXJ5NFXTM?t=1289
 - CoordinatorLayout - AppBarLayout - ConstraintLayout
 - Simpel layout example (Reference (ANNA) : https://play.google.com/store/apps/details?id=com.conbus.anna)
 <div>
