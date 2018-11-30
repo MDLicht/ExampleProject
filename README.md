@@ -64,3 +64,14 @@ Examples
   <img src="https://user-images.githubusercontent.com/12404118/49241455-3a249280-f44b-11e8-9bf8-b8121a63714a.jpg" width="250"></img>
   <img src="https://user-images.githubusercontent.com/12404118/49241469-46105480-f44b-11e8-8605-7fe440eb23a0.jpg" width="250"></img>
 </div>
+
+<hr/>
+
+8. Collapsing Toolbar with Constraint
+- Reference (DroidCon SF 2017) : https://www.youtube.com/watch?v=8lAXJ5NFXTM
+- CoordinatorLayout - AppBarLayout - ConstraintLayout
+- Simpel layout example (Reference (ANNA) : https://play.google.com/store/apps/details?id=com.conbus.anna)
+<div>
+  <img src="https://user-images.githubusercontent.com/12404118/49294910-a1981c00-f4f7-11e8-8528-31f5a9cd1eab.jpg" width="250"></img>
+  <img src="https://user-images.githubusercontent.com/12404118/49294918-a9f05700-f4f7-11e8-82c1-2d17090ce9bf.jpg" width="250"></img>
+</div>
