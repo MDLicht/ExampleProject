@@ -14,6 +14,10 @@ import com.mdlicht.zb.exampleproject.simpletranslator.activity.SimpleTranslatorA
 import com.mdlicht.zb.exampleproject.socialsnslogin.activity.SocialLoginActivity
 
 class ItemMainViewModel : ViewModel() {
+    /**
+     * @param view : Clicked view
+     * @param title : Title on Clicked item
+     */
     fun onItemClick(view: View, title: String) {
         val context = view.context
         when(title) {

@@ -17,6 +17,9 @@ class CustomMarkerRender(context: Context, map: GoogleMap, clusterManager: Clust
         super.onBeforeClusterRendered(cluster, markerOptions)
     }
 
+    /**
+     * Cluster data if size is over 0
+     */
     override fun shouldRenderAsCluster(cluster: Cluster<Row>?): Boolean {
         return cluster?.size!! >= 0
     }

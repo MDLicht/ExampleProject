@@ -24,11 +24,9 @@ class RxBasicRecyclerAdapter(val context: Context) : RecyclerView.Adapter<Recycl
     }
 
     fun setDataSet(dataSet: List<GitHubData>?) {
+        this.dataSet.clear()
         if (dataSet != null) {
-            this.dataSet.clear()
             this.dataSet.addAll(dataSet)
-        } else {
-            this.dataSet.clear()
         }
         notifyDataSetChanged()
     }

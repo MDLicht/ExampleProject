@@ -35,6 +35,9 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
     val clickResult = MutableLiveData<Row>()
     val gpsClick = MutableLiveData<Array<String>>()
 
+    /**
+     * Load Station info list when view model created
+     */
     init {
         loadStationList()
     }
@@ -52,16 +55,17 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap {
-                    Observable.fromIterable(it.SebcBicycleRetalKor?.row)
+                    Observable.fromIterable(it.SebcBicycleRetalKor?.row) // Convert result into station info's list
                 }
                 .filter {
-                    it.LATITUDE?.isNotEmpty() ?: false
+                    it.LATITUDE?.isNotEmpty() ?: false // filter item Latitude is empty
                 }
                 .filter {
-                    it.LONGITUDE?.isNotEmpty() ?: false
+                    it.LONGITUDE?.isNotEmpty() ?: false // filter item Longitude is empty
                 }
                 .subscribe({
                     it?.let {
+                        // Add station info to dataSet and draw marker
                         stationData.add(it)
                         addStationMarker(it)
                     }
@@ -75,11 +79,17 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
         clusterManager.addItem(row)
     }
 
+    /**
+     * Post station info to observer
+     */
     override fun onClusterItemClick(p0: Row?): Boolean {
         clickResult.postValue(p0)
         return true
     }
 
+    /**
+     * Post stations info to observer or zoom in 1 level
+     */
     override fun onClusterClick(p0: Cluster<Row>?): Boolean {
         if (p0?.size == 1) {
             clickResult.postValue(p0.items.first())
@@ -91,10 +101,16 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
         return true
     }
 
+    /**
+     * Post permission list to observer
+     */
     fun onGpsClick(view: View) {
         gpsClick.postValue(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION))
     }
 
+    /**
+     * Move camera
+     */
     override fun onLocationChanged(location: Location?) {
         map?.moveCamera(CameraUpdateFactory.newLatLng(LatLng(location?.latitude!!, location?.longitude!!)))
     }

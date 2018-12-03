@@ -26,10 +26,13 @@ class TranslatorViewModel : ViewModel() {
     private val publishSubject = PublishSubject.create<String>()
     private val compositeDisposable = CompositeDisposable()
 
+    /**
+     * Initialize publish subject for translation
+     */
     init {
         compositeDisposable.add(
             publishSubject
-                .debounce(500, TimeUnit.MILLISECONDS)
+                .debounce(500, TimeUnit.MILLISECONDS) // If any input doesn't happen for 500 ms
                 .distinctUntilChanged()
                 .filter {
                     it.isNotEmpty()
@@ -57,6 +60,10 @@ class TranslatorViewModel : ViewModel() {
         publishSubject.onNext(text.toString())
     }
 
+    /**
+     * @param view : Clicked view
+     * If translation's result text is not empty, copy it to clip board
+     */
     fun onResultLongClick(view: View): Boolean {
         destText.get()?.let {
             compositeDisposable.add(

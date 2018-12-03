@@ -11,8 +11,10 @@ import com.mdlicht.zb.exampleproject.databinding.ItemWithAdContentsBinding
 import java.lang.Exception
 
 class WithAdRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val INTERVAL: Int = 6
-    val dataSet = mutableListOf<String>(
+    companion object {
+        private const val INTERVAL: Int = 6
+    }
+    private val dataSet = mutableListOf<String>(
         "Item1", "Item2", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8", "Item9", "Item10",
         "Item11", "Item12", "Item13", "Item14", "Item15", "Item16", "Item17", "Item18", "Item19", "Item20"
     )
@@ -22,6 +24,9 @@ class WithAdRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         TYPE_AD(1)
     }
 
+    /**
+     * Create AdViewHolder below 5 items
+     */
     override fun getItemViewType(position: Int): Int {
         if((position + 1) % INTERVAL != 0)
             return ViewType.TYPE_CONTENTS.type
@@ -42,11 +47,14 @@ class WithAdRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
+    /**
+     * @return Total item size : DataSet size + Ad item size
+     */
     override fun getItemCount(): Int {
         return if(dataSet.size > 0) dataSet.size + Math.round((dataSet.size / INTERVAL).toFloat()) else dataSet.size
     }
 
-    fun getItemPosition(position: Int): Int {
+    private fun getItemPosition(position: Int): Int {
         return position - Math.round((position / INTERVAL).toFloat())
     }
 

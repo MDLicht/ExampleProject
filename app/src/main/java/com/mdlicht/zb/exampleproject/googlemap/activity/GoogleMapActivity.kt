@@ -44,6 +44,7 @@ class GoogleMapActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        // Observe click event about 1 Item cluster
         binding.vm!!.clickResult.observe(this, Observer {
             it?.let {
                 AlertDialog.Builder(this).setTitle(it.NAME_KOR).setMessage(it.ADD_KOR + '\n' + it.ADD_KOR_ROAD).show()
@@ -51,6 +52,7 @@ class GoogleMapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         })
 
+        // Observe click event about gps(current location)
         binding.vm!!.gpsClick.observe(this, Observer {
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -69,6 +71,9 @@ class GoogleMapActivity : AppCompatActivity(), OnMapReadyCallback {
         })
     }
 
+    /**
+     * If map is ready, set cluster manager and map on ViewModel
+     */
     override fun onMapReady(p0: GoogleMap?) {
         p0?.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(37.566327, 126.977948), 15f))
 
@@ -104,6 +109,9 @@ class GoogleMapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    /**
+     * If GPS Service is off, start settings activity
+     */
     private fun checkGpsSetting(): Boolean {
         val gps = android.provider.Settings.Secure.getString(
             contentResolver,

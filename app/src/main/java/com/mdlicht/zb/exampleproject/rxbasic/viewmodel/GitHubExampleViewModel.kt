@@ -34,6 +34,8 @@ class GitHubExampleViewModel : ViewModel(), TextView.OnEditorActionListener {
     }
 
     /**
+     * @Param view : Clicked view
+     * @Param userName : User's name Input on EditText
      * Call two API - Get Profile & Repos
      * And convert GitHubProfileAndRepos into List<GitHubData>
      * Finally Set data into RecyclerAdapter
