@@ -41,8 +41,11 @@
         </activity>
         <activity android:name=".constraintlayout.activity.ConstraintLayoutActivity">
         </activity>
-        <activity android:name=".collapsingtoolbar.activity.CollapsingToolbarActivity"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".collapsingtoolbar.activity.CollapsingToolbarActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".rangechart.activity.RangeChartActivity">
         </activity>
     </application>
 

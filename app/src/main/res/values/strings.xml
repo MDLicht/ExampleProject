@@ -8,6 +8,7 @@
     <string name="item_title_recyclerview_with_ad">RecyclerView With Ad</string>
     <string name="item_title_constraintlayout">ConstraintLayout</string>
     <string name="item_title_collapsing_toolbar">Collapsing Toolbar</string>
+    <string name="item_title_range_chart">Range Chart</string>
 
     <string name="social_tv_default">Logout State</string>
     <string name="social_tv_logint_format">%s Login State</string>

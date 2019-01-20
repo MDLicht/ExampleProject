@@ -8,6 +8,7 @@ import com.mdlicht.zb.exampleproject.collapsingtoolbar.activity.CollapsingToolba
 import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutActivity
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
+import com.mdlicht.zb.exampleproject.rangechart.activity.RangeChartActivity
 import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWithAdActivity
 import com.mdlicht.zb.exampleproject.rxbasic.activity.RxBasicActivity
 import com.mdlicht.zb.exampleproject.simpletranslator.activity.SimpleTranslatorActivity
@@ -44,6 +45,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_collapsing_toolbar) -> {
                 context.startActivity(Intent(context, CollapsingToolbarActivity::class.java))
+            }
+            context.getString(R.string.item_title_range_chart) -> {
+                context.startActivity(Intent(context, RangeChartActivity::class.java))
             }
         }
     }
