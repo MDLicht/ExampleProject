@@ -75,3 +75,11 @@ Examples
   <img src="https://user-images.githubusercontent.com/12404118/49294910-a1981c00-f4f7-11e8-8528-31f5a9cd1eab.jpg" width="250"></img>
   <img src="https://user-images.githubusercontent.com/12404118/49294918-a9f05700-f4f7-11e8-82c1-2d17090ce9bf.jpg" width="250"></img>
 </div>
+
+<hr/>
+
+9. RangeChart
+- RangeBar + LineChart
+<div>
+  <img src="https://user-images.githubusercontent.com/12404118/51435599-6f689680-1cbe-11e9-9736-d41ceed878ba.jpg" width="250"></img>
+</div>
