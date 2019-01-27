@@ -1,33 +1,56 @@
-package com.mdlicht.zb.exampleproject.rangechart.activity
+package com.mdlicht.zb.exampleproject.zigzagfilter.fragment
+
 
 import android.databinding.DataBindingUtil
+import android.databinding.ObservableInt
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.RectF
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.db.chart.model.LineSet
 import com.db.chart.renderer.AxisRenderer
 import com.db.chart.view.LineChartView
 import com.mdlicht.zb.exampleproject.R
-import com.mdlicht.zb.exampleproject.databinding.ActivityRangeChartBinding
+import com.mdlicht.zb.exampleproject.databinding.FragmentFilterPriceBinding
 import com.mdlicht.zb.exampleproject.rangechart.view.CustomRangeSeekBar
 
-class RangeChartActivity : AppCompatActivity(), CustomRangeSeekBar.OnCustomSeekBarListener {
-    lateinit var binding: ActivityRangeChartBinding
+class FilterPriceFragment : FilterBaseFragment(), CustomRangeSeekBar.OnCustomSeekBarListener {
+    lateinit var binding: FragmentFilterPriceBinding
+
+    val minPrice: ObservableInt = ObservableInt(0)
+    val maxPrice: ObservableInt = ObservableInt(100)
+
+    var onPriceChangedListener: OnPriceChangedListener? = null
+
+    public interface OnPriceChangedListener {
+        public fun onPriceChanged(minPrice: Int, maxPrice: Int)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_range_chart)
+        arguments?.let {
 
-        binding.minPrice.text = 0.toString()
-        binding.maxPrice.text = 100.toString()
+        }
+        if(parentFragment is OnPriceChangedListener)
+            onPriceChangedListener = parentFragment as OnPriceChangedListener
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_filter_price, container, false)
+        binding.fragment = this
 
         binding.rangebar.apply {
+            setOnCustomRangeSeekbarChangeListener(this@FilterPriceFragment)
             setMinValue(0f)
             setMaxValue(100f)
-            setOnCustomRangeSeekbarChangeListener(this@RangeChartActivity)
             setMinStartValue(0f)
             setMaxStartValue(100f)
         }
@@ -41,15 +64,19 @@ class RangeChartActivity : AppCompatActivity(), CustomRangeSeekBar.OnCustomSeekB
         binding.highlightchartview.apply {
             setChartView(this, resources.getColor(R.color.colorPrimary))
         }
+
+        return binding.root
     }
 
     override fun onThumbChanged(minThumb: RectF, maxThumb: RectF) {
         setMask(minThumb, maxThumb)
     }
 
-    override fun valueChanged(minValue: Number?, maxValue: Number?) {
-        binding.minPrice.text = minValue.toString()
-        binding.maxPrice.text = maxValue.toString()
+    override fun valueChanged(minValue: Number, maxValue: Number) {
+        minPrice.set(minValue.toInt())
+        maxPrice.set(maxValue.toInt())
+
+        onPriceChangedListener?.onPriceChanged(minValue.toInt(), maxValue.toInt())
     }
 
     private fun setMask(minThumb: RectF, maxThumb: RectF) {
@@ -84,5 +111,19 @@ class RangeChartActivity : AppCompatActivity(), CustomRangeSeekBar.OnCustomSeekB
             setYLabels(AxisRenderer.LabelPosition.NONE)
             show()
         }
+    }
+
+    override fun clearFilter() {
+        binding.rangebar.setMinStartValue(0F).setMaxStartValue(100F).apply()
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            FilterPriceFragment().apply {
+                arguments = Bundle().apply {
+
+                }
+            }
     }
 }

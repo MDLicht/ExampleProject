@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="dialog" type="com.mdlicht.zb.exampleproject.zigzagfilter.dialog.BottomFilterDialog"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".zigzagfilter.dialog.BottomFilterDialog">
+
+        <android.support.design.widget.TabLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.0"
+                app:tabMode="scrollable" android:id="@+id/tabLayout"/>
+        <com.mdlicht.zb.exampleproject.zigzagfilter.view.WrapContentViewPager
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/vpContainer"/>
+        <Button
+                android:text="@string/zigzag_filter_dialog_clear_btn_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnClear" app:layout_constraintStart_toStartOf="parent"
+                android:onClick="@{v -> dialog.onClearClick(v)}"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@+id/vpContainer"/>
+        <Button
+                android:text="@string/zigzag_filter_dialog_confirm_btn_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnConfirm"
+                android:onClick="@{v -> dialog.onConfirmClick(v)}"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnClear"
+                app:layout_constraintTop_toBottomOf="@+id/vpContainer"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

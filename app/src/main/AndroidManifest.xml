@@ -47,6 +47,11 @@
         </activity>
         <activity android:name=".rangechart.activity.RangeChartActivity">
         </activity>
+        <activity
+                android:name=".zigzagfilter.activity.ZigzagFilterActivity"
+                android:label="@string/title_activity_zigzag_filter"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

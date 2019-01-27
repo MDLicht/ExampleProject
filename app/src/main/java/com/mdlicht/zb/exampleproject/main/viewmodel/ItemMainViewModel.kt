@@ -13,6 +13,7 @@ import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWit
 import com.mdlicht.zb.exampleproject.rxbasic.activity.RxBasicActivity
 import com.mdlicht.zb.exampleproject.simpletranslator.activity.SimpleTranslatorActivity
 import com.mdlicht.zb.exampleproject.socialsnslogin.activity.SocialLoginActivity
+import com.mdlicht.zb.exampleproject.zigzagfilter.activity.ZigzagFilterActivity
 
 class ItemMainViewModel : ViewModel() {
     /**
@@ -48,6 +49,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_range_chart) -> {
                 context.startActivity(Intent(context, RangeChartActivity::class.java))
+            }
+            context.getString(R.string.item_title_zigzag_filter) -> {
+                context.startActivity(Intent(context, ZigzagFilterActivity::class.java))
             }
         }
     }

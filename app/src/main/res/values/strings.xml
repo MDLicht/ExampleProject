@@ -9,6 +9,7 @@
     <string name="item_title_constraintlayout">ConstraintLayout</string>
     <string name="item_title_collapsing_toolbar">Collapsing Toolbar</string>
     <string name="item_title_range_chart">Range Chart</string>
+    <string name="item_title_zigzag_filter">Zigzag Filter</string>
 
     <string name="social_tv_default">Logout State</string>
     <string name="social_tv_logint_format">%s Login State</string>
@@ -51,5 +52,15 @@
     <string name="collapsing_toolbar_story">Story</string>
     <string name="collapsing_toolbar_Introduction">Introduction</string>
 
+    <string name="zigzag_filter_price_title">가격</string>
+    <string name="zigzag_filter_color_title">색상</string>
+    <string name="zigzag_filter_dialog_btn_title">선택</string>
+    <string name="zigzag_filter_dialog_clear_btn_title">초기화</string>
+    <string name="zigzag_filter_dialog_confirm_btn_title">선택</string>
+
     <string name="git_test">Git Test</string>
+    <string name="title_activity_zigzag_filter">ZigzagFilterActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

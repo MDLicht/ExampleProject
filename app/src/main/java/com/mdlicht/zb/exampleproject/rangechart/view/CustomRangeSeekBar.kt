@@ -1,4 +1,4 @@
-package com.mdlicht.zb.exampleproject.rangechart
+package com.mdlicht.zb.exampleproject.rangechart.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -34,6 +34,11 @@ class CustomRangeSeekBar : CrystalRangeSeekbar {
         mOnCustomRangeSeekbarChangeListener?.valueChanged(selectedMinValue, selectedMaxValue)
 
         return true
+    }
+
+    override fun apply() {
+        super.apply()
+        mOnCustomRangeSeekbarChangeListener?.valueChanged(selectedMinValue, selectedMaxValue)
     }
 
     public fun getLeftThumbRectF(): RectF {
