@@ -70,7 +70,7 @@ Examples
 8. Collapsing Toolbar with Constraint
 - Reference (DroidCon SF 2017) : https://youtu.be/8lAXJ5NFXTM?t=1289
 - CoordinatorLayout - AppBarLayout - ConstraintLayout
-- Simpel layout example (Reference (ANNA) : https://play.google.com/store/apps/details?id=com.conbus.anna)
+- Simple layout example (Reference (ANNA) : https://play.google.com/store/apps/details?id=com.conbus.anna)
 <div>
   <img src="https://user-images.githubusercontent.com/12404118/49294910-a1981c00-f4f7-11e8-8528-31f5a9cd1eab.jpg" width="250"></img>
   <img src="https://user-images.githubusercontent.com/12404118/49294918-a9f05700-f4f7-11e8-82c1-2d17090ce9bf.jpg" width="250"></img>
@@ -89,6 +89,7 @@ Examples
 10. Zigzag Filter
 - BottoSheetDialog
 - RangeChart and Selectable RecyclerView in View Pager
+- Reference (Zigzag) : https://play.google.com/store/apps/details?id=com.croquis.zigzag&hl=ko
 <div>
   <img src="https://user-images.githubusercontent.com/12404118/51803073-096aa900-2294-11e9-91f8-f6902c36f7e2.jpg" width="250"></img>
   <img src="https://user-images.githubusercontent.com/12404118/51803081-1a1b1f00-2294-11e9-9e5f-018a35cd8253.jpg" width="250"></img>
