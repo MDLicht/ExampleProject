@@ -57,7 +57,7 @@ class BottomFilterDialog : BottomSheetDialogFragment(), ViewPager.OnPageChangeLi
         binding.dialog = this
 
         binding.vpContainer.apply {
-            adapter = BottomFilterPagerAdapter(childFragmentManager)
+            adapter = BottomFilterPagerAdapter(childFragmentManager, context)
             addOnPageChangeListener(this@BottomFilterDialog)
         }
 
