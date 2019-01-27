@@ -87,7 +87,7 @@ Examples
 <hr/>
 
 10. Zigzag Filter
-- BottoSheetDialog
+- BottomSheetDialog
 - RangeChart and Selectable RecyclerView in View Pager
 - Reference (Zigzag) : https://play.google.com/store/apps/details?id=com.croquis.zigzag&hl=ko
 <div>
