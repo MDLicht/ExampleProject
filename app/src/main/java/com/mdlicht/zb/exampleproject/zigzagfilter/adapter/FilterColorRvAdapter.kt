@@ -11,10 +11,10 @@ import com.mdlicht.zb.exampleproject.databinding.ItemFilterColorBinding
 
 class FilterColorRvAdapter(listener: OnSelctedColorChangedListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val colorList: List<String> = listOf(
-        "#ff0000", "#ffff00", "#ff00ff", "#fff000", "#ff0f00",
-        "#ff00f0", "#ff000f", "#fffff0", "#ffff0f", "#f00000",
-        "#f00000", "#00f0ff", "#000fff", "#f0ff00", "#0fff00",
-        "#ff0000", "#ff0000", "#ff0000", "#ff0000", "#ff0000"
+        "#FF0000", "#FF5E00", "#FFBB00", "#FFE400", "#ABF200",
+        "#1DDB16", "#00D8FF", "#0054FF", "#0100FF", "#5F00FF",
+        "#FF00DD", "#FFA7A7", "#FFC19E", "#FFE08C", "#FAED7D",
+        "#CEF279", "#B7F0B1", "#B2EBF4", "#B2CCFF", "#B5B2FF"
     )
 
     private var onSelctedColorChangedListener: OnSelctedColorChangedListener? = listener
