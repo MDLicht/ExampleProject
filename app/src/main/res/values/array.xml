@@ -11,6 +11,7 @@
         <item>@string/item_title_collapsing_toolbar</item>
         <item>@string/item_title_range_chart</item>
         <item>@string/item_title_zigzag_filter</item>
+        <item>@string/item_title_room_example</item>
     </string-array>
 
     <string-array name="databinding_example_spinner_entries">

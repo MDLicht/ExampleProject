@@ -10,6 +10,7 @@ import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActi
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
 import com.mdlicht.zb.exampleproject.rangechart.activity.RangeChartActivity
 import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWithAdActivity
+import com.mdlicht.zb.exampleproject.room.activity.RoomActivity
 import com.mdlicht.zb.exampleproject.rxbasic.activity.RxBasicActivity
 import com.mdlicht.zb.exampleproject.simpletranslator.activity.SimpleTranslatorActivity
 import com.mdlicht.zb.exampleproject.socialsnslogin.activity.SocialLoginActivity
@@ -52,6 +53,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_zigzag_filter) -> {
                 context.startActivity(Intent(context, ZigzagFilterActivity::class.java))
+            }
+            context.getString(R.string.item_title_room_example) -> {
+                context.startActivity(Intent(context, RoomActivity::class.java))
             }
         }
     }

@@ -17,6 +17,8 @@ import com.mdlicht.zb.exampleproject.databinding.adapter.DatabindingExampleSpinn
 import com.mdlicht.zb.exampleproject.databinding.model.Color
 import com.mdlicht.zb.exampleproject.googlemap.model.Response
 import com.mdlicht.zb.exampleproject.googlemap.viewmodel.GoogleMapViewModel
+import com.mdlicht.zb.exampleproject.room.adapter.UserRvAdapter
+import com.mdlicht.zb.exampleproject.room.model.User
 import com.mdlicht.zb.exampleproject.rxbasic.adapter.RxBasicRecyclerAdapter
 import com.mdlicht.zb.exampleproject.rxbasic.model.GitHubData
 
@@ -28,6 +30,12 @@ object DataBindingAdapter {
     @BindingAdapter("gitHubDataSet")
     fun setGitHubDataSet(rv: RecyclerView, dataSet: List<GitHubData>?) {
         (rv.adapter as RxBasicRecyclerAdapter).setDataSet(dataSet)
+    }
+
+    @JvmStatic
+    @BindingAdapter("userDataSet")
+    fun setUserDataSet(rv: RecyclerView, dataSet: List<User>?) {
+        (rv.adapter as UserRvAdapter).setDataSet(dataSet)
     }
 
     /**

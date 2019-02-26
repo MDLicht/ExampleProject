@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="vm" type="com.mdlicht.zb.exampleproject.room.viewmodel.NewUserViewModel"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="300dp"
+            tools:context=".room.dialog.NewUserDialog">
+
+        <EditText
+                android:text="@={vm.name}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/etName" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent" android:hint="@string/room_dialog_hint_name"/>
+        <EditText
+                android:text="@={vm.desc}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/etDesc" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/etName"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
+                app:layout_constraintStart_toStartOf="@+id/etName" android:hint="@string/room_dialog_hint_desc"/>
+        <Button
+                android:onClick="@{() -> vm.onAddClick(vm.id, vm.name, vm.desc)}"
+                android:text="@string/room_dialog_btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAdd" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/etDesc" app:layout_constraintEnd_toEndOf="@+id/etDesc"
+                android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
+        <Button
+                android:onClick="@{() -> vm.onCancelClick()}"
+                android:text="@string/room_dialog_btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnCancel" app:layout_constraintEnd_toStartOf="@+id/btnAdd"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="@+id/btnAdd" app:layout_constraintBottom_toBottomOf="@+id/btnAdd"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

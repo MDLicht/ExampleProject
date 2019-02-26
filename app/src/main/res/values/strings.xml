@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">ExampleProject</string>
+
+    <string name="common_yes">Yes</string>
+    <string name="common_cancel">Cancel</string>
+
     <string name="item_title_social_login">Social Login</string>
     <string name="item_title_rx_basic">Rx Basic</string>
     <string name="item_title_databinding_example">Databinding Example</string>
@@ -10,6 +14,7 @@
     <string name="item_title_collapsing_toolbar">Collapsing Toolbar</string>
     <string name="item_title_range_chart">Range Chart</string>
     <string name="item_title_zigzag_filter">Zigzag Filter</string>
+    <string name="item_title_room_example">Room Example</string>
 
     <string name="social_tv_default">Logout State</string>
     <string name="social_tv_logint_format">%s Login State</string>
@@ -60,6 +65,15 @@
 
     <string name="git_test">Git Test</string>
     <string name="title_activity_zigzag_filter">ZigzagFilterActivity</string>
+
+    <string name="room_example_empty_item">Data set is empty</string>
+    <string name="room_dialog_hint_name">Input Name</string>
+    <string name="room_dialog_hint_desc">Input Description</string>
+    <string name="room_dialog_btn_cancel">@string/common_cancel</string>
+    <string name="room_dialog_btn_add">Add</string>
+    <string name="room_dialog_btn_update">Update</string>
+    <string name="room_delete_dialog_title">Alert</string>
+    <string name="room_delete_dialog_msg">Delete this item?</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
