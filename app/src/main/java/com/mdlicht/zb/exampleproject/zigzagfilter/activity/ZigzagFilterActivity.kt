@@ -2,10 +2,8 @@ package com.mdlicht.zb.exampleproject.zigzagfilter.activity
 
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
-import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.text.Html
 import android.view.View
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.ActivityZigzagFilterBinding
@@ -28,17 +26,8 @@ class ZigzagFilterActivity : AppCompatActivity(), BottomFilterDialog.OnFilterCha
     }
 
     override fun onFilterChanged(minPrice: Int, maxPrice: Int, colorList: List<String>) {
-        val colorStr = colorList.joinToString {
-            "<font color='$it'>$it</font>"
-        }
-        binding.tvColor.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Html.fromHtml(
-                colorStr,
-                Html.FROM_HTML_MODE_LEGACY
-            )
-        } else {
-            Html.fromHtml(colorStr)
-        }
-        binding.tvPrice.text = "$minPrice ~ $maxPrice"
+        binding.vm?.minPrice?.value = minPrice
+        binding.vm?.maxPrice?.value = maxPrice
+        binding.vm?.color?.value = colorList
     }
 }

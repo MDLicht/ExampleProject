@@ -31,6 +31,7 @@
                 android:layout_marginStart="16dp" android:layout_marginTop="16dp"
                 app:layout_constraintTop_toTopOf="parent"/>
         <TextView
+                android:text="@{vm.convertPriceString(vm.minPrice, vm.maxPrice)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvPrice"
@@ -48,6 +49,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvPrice"
                 app:layout_constraintStart_toStartOf="@+id/tvPrice"/>
         <TextView
+                android:text="@{vm.convertColorString(vm.color)}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvColor"
