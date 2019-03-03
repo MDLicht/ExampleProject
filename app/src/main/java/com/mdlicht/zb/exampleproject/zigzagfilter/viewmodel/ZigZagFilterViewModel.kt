@@ -11,6 +11,12 @@ class ZigZagFilterViewModel : ViewModel() {
     val maxPrice: MutableLiveData<Int> = MutableLiveData<Int>()
     val color: MutableLiveData<List<String>> = MutableLiveData<List<String>>()
 
+    val clickDialog: MutableLiveData<Boolean> = MutableLiveData()
+
+    fun onClickShowDialog() {
+        clickDialog.value = true
+    }
+
     fun convertPriceString(minP: Int?, maxP: Int?): String {
         return if(minP == null || maxP == null) {
             "-"

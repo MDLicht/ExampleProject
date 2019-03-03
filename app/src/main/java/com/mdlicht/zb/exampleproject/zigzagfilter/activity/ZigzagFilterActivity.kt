@@ -1,5 +1,6 @@
 package com.mdlicht.zb.exampleproject.zigzagfilter.activity
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -16,13 +17,13 @@ class ZigzagFilterActivity : AppCompatActivity(), BottomFilterDialog.OnFilterCha
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_zigzag_filter)
-        binding.vm = ViewModelProviders.of(this).get(ZigZagFilterViewModel::class.java)
+        binding.vm = ViewModelProviders.of(this).get(ZigZagFilterViewModel::class.java).apply {
+            clickDialog.observe(this@ZigzagFilterActivity, Observer {
+                BottomFilterDialog.newInstance().show(supportFragmentManager, null)
+            })
+        }
         binding.activity = this
         binding.lifecycleOwner = this
-    }
-
-    fun onClickOpenDialog(view: View) {
-        BottomFilterDialog.newInstance().show(supportFragmentManager, null)
     }
 
     override fun onFilterChanged(minPrice: Int, maxPrice: Int, colorList: List<String>) {
