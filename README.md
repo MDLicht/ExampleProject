@@ -1,7 +1,7 @@
-# ExampleProject
-Examples
-========
+This repository includes some simple android examples
 
+Example List
+===============
 1. Social Login
 - Google, Facebook login with firebase
 
