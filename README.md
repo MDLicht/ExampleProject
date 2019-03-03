@@ -1,4 +1,7 @@
 This repository includes some simple android examples
+- Kotlin
+- RxJava & RxAndroid
+- MVVM & Databinding
 
 Example List
 ===============
