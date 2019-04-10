@@ -118,3 +118,9 @@ Example List
 - BaseRecyclerViewAdapter, BaseViewHolder, BaseModel(Interface)
 
 <hr/>
+
+13. Xml Parsing with Retrofit2 / SimpleXmlConverter
+- Retrofit2
+- SimpleXmlConverter
+
+<hr/>
