@@ -111,3 +111,10 @@ Example List
   <img src="https://user-images.githubusercontent.com/12404118/53443076-2d193e80-3a4e-11e9-9188-161dd1a71c4c.jpg" width="250"></img>
   <img src="https://user-images.githubusercontent.com/12404118/53443108-3b675a80-3a4e-11e9-8dc3-e2cca8fd74db.jpg" width="250"></img>
 </div>
+
+<hr/>
+
+12. Base RecyclerView
+- BaseRecyclerViewAdapter, BaseViewHolder, BaseModel(Interface)
+
+<hr/>
