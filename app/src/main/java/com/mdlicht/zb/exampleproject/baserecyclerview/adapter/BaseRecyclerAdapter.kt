@@ -19,5 +19,6 @@ abstract class BaseRecyclerAdapter<ITEM>: RecyclerView.Adapter<BaseViewHolder<IT
     fun setDataSet(dataSet: List<BaseModel>) {
         this.dataSet.clear()
         this.dataSet.addAll(dataSet)
+        notifyDataSetChanged()
     }
 }

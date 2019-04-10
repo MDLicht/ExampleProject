@@ -15,6 +15,7 @@ import com.mdlicht.zb.exampleproject.room.activity.RoomActivity
 import com.mdlicht.zb.exampleproject.rxbasic.activity.RxBasicActivity
 import com.mdlicht.zb.exampleproject.simpletranslator.activity.SimpleTranslatorActivity
 import com.mdlicht.zb.exampleproject.socialsnslogin.activity.SocialLoginActivity
+import com.mdlicht.zb.exampleproject.xmlparsing.activity.XmlParsingActivity
 import com.mdlicht.zb.exampleproject.zigzagfilter.activity.ZigzagFilterActivity
 
 class ItemMainViewModel : ViewModel() {
@@ -60,6 +61,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_base_recylcerview) -> {
                 context.startActivity(Intent(context, BaseRecyclerViewActivity::class.java))
+            }
+            context.getString(R.string.item_title_xml_parsing) -> {
+                context.startActivity(Intent(context, XmlParsingActivity::class.java))
             }
         }
     }

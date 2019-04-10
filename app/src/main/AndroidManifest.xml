@@ -16,6 +16,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".xmlparsing.activity.XmlParsingActivity">
+        </activity>
         <activity android:name=".baserecyclerview.activity.BaseRecyclerViewActivity">
         </activity>
         <activity android:name=".room.activity.RoomActivity">
