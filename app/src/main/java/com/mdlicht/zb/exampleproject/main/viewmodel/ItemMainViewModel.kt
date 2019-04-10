@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.view.View
 import com.mdlicht.zb.exampleproject.R
+import com.mdlicht.zb.exampleproject.baserecyclerview.activity.BaseRecyclerViewActivity
 import com.mdlicht.zb.exampleproject.collapsingtoolbar.activity.CollapsingToolbarActivity
 import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutActivity
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
@@ -56,6 +57,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_room_example) -> {
                 context.startActivity(Intent(context, RoomActivity::class.java))
+            }
+            context.getString(R.string.item_title_base_recylcerview) -> {
+                context.startActivity(Intent(context, BaseRecyclerViewActivity::class.java))
             }
         }
     }

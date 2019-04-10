@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.ActivityMainBinding
 import com.mdlicht.zb.exampleproject.main.adapter.MainRecyclerAdapter
+import com.mdlicht.zb.exampleproject.main.model.Title
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.rvMain.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = MainRecyclerAdapter(this@MainActivity)
+            adapter = MainRecyclerAdapter<Title>(this@MainActivity)
             addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
         }
     }
