@@ -26,6 +26,7 @@ import com.mdlicht.zb.exampleproject.googlemap.common.CustomMarkerRender
 import com.mdlicht.zb.exampleproject.googlemap.viewmodel.GoogleMapViewModel
 import android.content.DialogInterface
 import android.content.Intent
+import com.mdlicht.zb.exampleproject.googlemap.dialog.BicycleListDialog
 
 
 class GoogleMapActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -50,6 +51,10 @@ class GoogleMapActivity : AppCompatActivity(), OnMapReadyCallback {
                 AlertDialog.Builder(this).setTitle(it.NAME_KOR).setMessage(it.ADD_KOR + '\n' + it.ADD_KOR_ROAD).show()
                     .show()
             }
+        })
+
+        binding.vm!!.clickList.observe(this, Observer {
+            BicycleListDialog.newInstance(it).show(supportFragmentManager, null)
         })
 
         // Observe click event about gps(current location)

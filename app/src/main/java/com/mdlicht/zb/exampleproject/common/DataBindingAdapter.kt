@@ -15,7 +15,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.adapter.DatabindingExampleSpinnerAdapter
 import com.mdlicht.zb.exampleproject.databinding.model.Color
+import com.mdlicht.zb.exampleproject.googlemap.adapter.BicycleRecyclerAdapter
 import com.mdlicht.zb.exampleproject.googlemap.model.Response
+import com.mdlicht.zb.exampleproject.googlemap.model.Row
 import com.mdlicht.zb.exampleproject.googlemap.viewmodel.GoogleMapViewModel
 import com.mdlicht.zb.exampleproject.room.adapter.UserRvAdapter
 import com.mdlicht.zb.exampleproject.room.model.User
@@ -77,5 +79,14 @@ object DataBindingAdapter {
     @InverseBindingAdapter(attribute = "selectedValue", event = "selectedValueAttrChanged")
     fun captureSelectedValue(spinner: AppCompatSpinner) : Color? {
         return spinner.selectedItem as Color
+    }
+
+    /**
+     * BindingAdapter for setting data set on RecyclerView Adapter
+     */
+    @JvmStatic
+    @BindingAdapter("bicycleDataSet")
+    fun setBicycleDataSet(rv: RecyclerView, dataSet: List<Row>?) {
+        (rv.adapter as BicycleRecyclerAdapter).setDataSet(dataSet)
     }
 }

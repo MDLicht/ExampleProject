@@ -33,6 +33,7 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
     lateinit var clusterManager: ClusterManager<Row>
     private val stationData: ObservableList<Row> = ObservableArrayList()
     val clickResult = MutableLiveData<Row>()
+    val clickList = MutableLiveData<Collection<Row>>()
     val gpsClick = MutableLiveData<Array<String>>()
 
     /**
@@ -94,9 +95,10 @@ class GoogleMapViewModel : ViewModel(), ClusterManager.OnClusterItemClickListene
         if (p0?.size == 1) {
             clickResult.postValue(p0.items.first())
         } else {
-            map?.let {
-                it.moveCamera(CameraUpdateFactory.newLatLngZoom(p0?.position, it.cameraPosition.zoom + 1))
-            }
+            clickList.postValue(p0?.items)
+//            map?.let {
+//                it.moveCamera(CameraUpdateFactory.newLatLngZoom(p0?.position, it.cameraPosition.zoom + 1))
+//            }
         }
         return true
     }
