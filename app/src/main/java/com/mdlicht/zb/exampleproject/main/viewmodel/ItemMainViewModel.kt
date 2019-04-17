@@ -8,6 +8,7 @@ import com.mdlicht.zb.exampleproject.baserecyclerview.activity.BaseRecyclerViewA
 import com.mdlicht.zb.exampleproject.collapsingtoolbar.activity.CollapsingToolbarActivity
 import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutActivity
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
+import com.mdlicht.zb.exampleproject.exoplayer.acitivity.ExoPlayerActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
 import com.mdlicht.zb.exampleproject.rangechart.activity.RangeChartActivity
 import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWithAdActivity
@@ -64,6 +65,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_xml_parsing) -> {
                 context.startActivity(Intent(context, XmlParsingActivity::class.java))
+            }
+            context.getString(R.string.item_title_exo_player) -> {
+                context.startActivity(Intent(context, ExoPlayerActivity::class.java))
             }
         }
     }

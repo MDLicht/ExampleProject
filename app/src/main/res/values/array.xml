@@ -14,6 +14,7 @@
         <item>@string/item_title_room_example</item>
         <item>@string/item_title_base_recylcerview</item>
         <item>@string/item_title_xml_parsing</item>
+        <item>@string/item_title_exo_player</item>
     </string-array>
 
     <string-array name="databinding_example_spinner_entries">

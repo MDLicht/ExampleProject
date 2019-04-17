@@ -17,6 +17,7 @@
     <string name="item_title_room_example">Room Example</string>
     <string name="item_title_base_recylcerview">Base RecyclerView</string>
     <string name="item_title_xml_parsing">Xml Parsing</string>
+    <string name="item_title_exo_player">Exo Player</string>
 
     <string name="social_tv_default">Logout State</string>
     <string name="social_tv_logint_format">%s Login State</string>
