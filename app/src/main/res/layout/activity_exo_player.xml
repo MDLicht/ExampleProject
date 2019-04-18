@@ -7,6 +7,7 @@
 
     </data>
     <android.support.constraint.ConstraintLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".exoplayer.acitivity.ExoPlayerActivity">
@@ -16,7 +17,10 @@
                 android:layout_height="0dp" android:layout_width="0dp" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintDimensionRatio="16:9"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:use_controller="true"
+                app:show_timeout="5000"
+                app:controller_layout_id="@layout/exo_playback_control_view"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

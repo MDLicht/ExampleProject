@@ -1,9 +1,14 @@
 package com.mdlicht.zb.exampleproject.exoplayer.acitivity
 
+import android.app.Dialog
 import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -20,6 +25,7 @@ import com.mdlicht.zb.exampleproject.databinding.ActivityExoPlayerBinding
 
 /**
  * @Refence - https://black-jin0427.tistory.com/175
+ *             https://medium.com/fungjai/playing-video-by-exoplayer-b97903be0b33
  */
 class ExoPlayerActivity : AppCompatActivity() {
     lateinit var binding: ActivityExoPlayerBinding
@@ -28,17 +34,73 @@ class ExoPlayerActivity : AppCompatActivity() {
     private var windowIndex: Int = 0
     private var positionMs: Long = 0
     private var playWhenReady: Boolean = true
+    private var isPlayerFullScreen: Boolean = false
+
+    private var originLayoutParam: ViewGroup.LayoutParams? = null
+    lateinit var fullScreenDialog: Dialog
+
+    private fun initFullScreenDialog() {
+        fullScreenDialog = object : Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen) {
+            override fun onBackPressed() {
+                if (isPlayerFullScreen) {
+                    closeFullScreenDilaog()
+                }
+                super.onBackPressed()
+            }
+        }
+    }
+
+    private fun openFullScreenDialog() {
+        binding.exoPlayer.let {
+            (it.parent as ViewGroup).removeView(it)
+            fullScreenDialog.addContentView(
+                it,
+                ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+            )
+            binding.exoPlayer.findViewById<ImageView>(R.id.exo_fullscreen_icon).setImageDrawable(
+                ContextCompat.getDrawable(
+                    this@ExoPlayerActivity,
+                    R.drawable.exo_controls_fullscreen_exit
+                )
+            )
+            isPlayerFullScreen = true
+            fullScreenDialog.show()
+        }
+    }
+
+    private fun closeFullScreenDilaog() {
+        binding.exoPlayer.let {
+            (it.parent as ViewGroup).removeView(it)
+            binding.container.addView(it, originLayoutParam)
+            isPlayerFullScreen = false
+            fullScreenDialog.dismiss()
+            binding.exoPlayer.findViewById<ImageView>(R.id.exo_fullscreen_icon).setImageDrawable(
+                ContextCompat.getDrawable(
+                    this@ExoPlayerActivity,
+                    R.drawable.exo_controls_fullscreen_enter
+                )
+            )
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_exo_player)
         binding.apply {
-
+            exoPlayer.findViewById<FrameLayout>(R.id.exo_fullscreen_button).setOnClickListener {
+                if (!isPlayerFullScreen) {
+                    openFullScreenDialog()
+                } else {
+                    closeFullScreenDilaog()
+                }
+            }
+            originLayoutParam = exoPlayer.layoutParams
         }
+        initFullScreenDialog()
     }
 
     fun initPlayer() {
-        if(player == null) {
+        if (player == null) {
             player = ExoPlayerFactory.newSimpleInstance(this@ExoPlayerActivity)
 
             binding.apply {
@@ -49,7 +111,7 @@ class ExoPlayerActivity : AppCompatActivity() {
 //            exoPlayer.useController = false
 
                 // 사이즈 조절
-            exoPlayer.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
+                exoPlayer.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
 
                 // 변화 감지
                 player?.addListener(object : Player.EventListener {
@@ -57,15 +119,19 @@ class ExoPlayerActivity : AppCompatActivity() {
                         when (playbackState) {
                             Player.STATE_IDLE -> {
                                 //재생 실패
+                                //nothing to play media
                             }
                             Player.STATE_BUFFERING -> {
                                 // 재생 준비
+                                //more data needs to load
                             }
                             Player.STATE_READY -> {
                                 // 재생 준비 완료
+                                //can start playback
                             }
                             Player.STATE_ENDED -> {
                                 // 재생 마침
+                                //playback ended
                             }
                         }
                     }
