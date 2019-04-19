@@ -1,11 +1,15 @@
 package com.mdlicht.zb.exampleproject.exoplayer.acitivity
 
+import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -52,6 +56,7 @@ class ExoPlayerActivity : AppCompatActivity() {
 
     private fun openFullScreenDialog() {
         binding.exoPlayer.let {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             (it.parent as ViewGroup).removeView(it)
             fullScreenDialog.addContentView(
                 it,
@@ -70,6 +75,7 @@ class ExoPlayerActivity : AppCompatActivity() {
 
     private fun closeFullScreenDilaog() {
         binding.exoPlayer.let {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             (it.parent as ViewGroup).removeView(it)
             binding.container.addView(it, originLayoutParam)
             isPlayerFullScreen = false
@@ -81,6 +87,39 @@ class ExoPlayerActivity : AppCompatActivity() {
                 )
             )
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        val currentOrientation = resources.configuration.orientation
+        if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            hideSystemUiFullScreen()
+        } else {
+            hideSystemUi()
+        }
+    }
+
+    @SuppressLint("InlinedApi")
+    private fun hideSystemUiFullScreen() {
+        binding.exoPlayer.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_LOW_PROFILE
+                        or View.SYSTEM_UI_FLAG_FULLSCREEN
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                )
+    }
+
+    @SuppressLint("InlinedApi")
+    private fun hideSystemUi() {
+        binding.exoPlayer.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_LOW_PROFILE
+                        or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -111,7 +150,7 @@ class ExoPlayerActivity : AppCompatActivity() {
 //            exoPlayer.useController = false
 
                 // 사이즈 조절
-                exoPlayer.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
+                exoPlayer.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
 
                 // 변화 감지
                 player?.addListener(object : Player.EventListener {
