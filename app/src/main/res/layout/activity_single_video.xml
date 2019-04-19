@@ -10,14 +10,18 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".exoplayer.acitivity.ExoPlayerActivity">
+            android:keepScreenOn="true"
+            tools:context=".exoplayer.acitivity.SingleVideoActivity">
 
-        <android.support.v7.widget.RecyclerView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+                android:id="@+id/exoPlayer"
+                android:layout_height="wrap_content" android:layout_width="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/rvList"/>
+                app:use_controller="true"
+                app:show_timeout="5000"
+                app:controller_layout_id="@layout/exo_playback_control_view"/>
+
     </android.support.constraint.ConstraintLayout>
 </layout>

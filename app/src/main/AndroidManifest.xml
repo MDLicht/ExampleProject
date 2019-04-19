@@ -16,9 +16,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".exoplayer.acitivity.ExoPlayerActivity"
-                  android:theme="@style/Theme.AppCompat.NoActionBar"
-                  android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode">
+        <activity android:name=".exoplayer.acitivity.VideoListActivity">
+        </activity>
+        <activity
+                android:name=".exoplayer.acitivity.SingleVideoActivity"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+                android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
+        <activity android:name=".exoplayer.acitivity.ExoPlayerActivity">
         </activity>
         <activity android:name=".xmlparsing.activity.XmlParsingActivity">
         </activity>
