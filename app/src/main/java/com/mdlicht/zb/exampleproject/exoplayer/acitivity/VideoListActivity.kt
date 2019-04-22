@@ -12,6 +12,7 @@ import com.mdlicht.zb.exampleproject.exoplayer.model.Video
 
 class VideoListActivity : AppCompatActivity() {
     lateinit var binding: ActivityVideoListBinding
+    private var isFirst: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,5 +24,25 @@ class VideoListActivity : AppCompatActivity() {
                 addItemDecoration(DividerItemDecoration(this@VideoListActivity, DividerItemDecoration.VERTICAL))
             }
         }
+
+        if(isFirst) {
+            binding.rvVideo.playVideo()
+            isFirst = false
+        }
+    }
+
+    override fun onResume() {
+        binding.rvVideo.onRestartPlayer()
+        super.onResume()
+    }
+
+    override fun onPause() {
+        binding.rvVideo.onPausePlayer()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        binding.rvVideo.onRelease()
+        super.onDestroy()
     }
 }

@@ -11,7 +11,7 @@
             android:layout_height="match_parent"
             tools:context=".exoplayer.acitivity.VideoListActivity">
 
-        <android.support.v7.widget.RecyclerView
+        <com.mdlicht.zb.exampleproject.exoplayer.view.ExoPlayerRecyclerView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintStart_toStartOf="parent"

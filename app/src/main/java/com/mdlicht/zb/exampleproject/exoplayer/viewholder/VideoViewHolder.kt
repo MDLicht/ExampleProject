@@ -20,6 +20,7 @@ class VideoViewHolder private constructor(itemView: View): BaseViewHolder<Video>
     }
 
     override fun onBindView(position: Int, item: Video) {
+        itemView.tag = this
         binding.video = item
     }
 }
