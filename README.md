@@ -130,6 +130,6 @@ Example List
 
 <div>
   <img src="https://user-images.githubusercontent.com/12404118/56555494-1fa4ae80-65d0-11e9-9dc9-86e4f9f9115e.jpg" width="250"></img>
-  <img src="https://user-images.githubusercontent.com/12404118/56555510-2b907080-65d0-11e9-9d95-855e70d89df0.jpg" height="250"></img>
-  <img src="https://user-images.githubusercontent.com/12404118/56555527-364b0580-65d0-11e9-84e0-fb89c95cdab1.jpg" width="250"></img>
+  <img src="https://user-images.githubusercontent.com/12404118/56555510-2b907080-65d0-11e9-9d95-855e70d89df0.jpg" width="250"></img>
+  <img src="https://user-images.githubusercontent.com/12404118/56555527-364b0580-65d0-11e9-84e0-fb89c95cdab1.jpg" height="250"></img>
 </div>
