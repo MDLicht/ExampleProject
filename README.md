@@ -136,4 +136,6 @@ Example List
 
 <hr/>
 
-
+15. MVP Practice
+- Equal with 2.RxBasic
+- Constract interface, Presenter, View
