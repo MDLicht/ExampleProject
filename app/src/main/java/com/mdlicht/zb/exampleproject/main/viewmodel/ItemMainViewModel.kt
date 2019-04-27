@@ -27,7 +27,8 @@ class ItemMainViewModel : ViewModel() {
      */
     fun onItemClick(view: View, title: String) {
         val context = view.context
-        when(title) {
+        val item = title.substring(title.indexOf(".")+1).trim()
+        when(item) {
             context.getString(R.string.item_title_social_login) -> {
                 context.startActivity(Intent(context, SocialLoginActivity::class.java))
             }
