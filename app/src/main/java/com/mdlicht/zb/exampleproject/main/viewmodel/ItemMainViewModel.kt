@@ -10,6 +10,7 @@ import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutA
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
 import com.mdlicht.zb.exampleproject.exoplayer.acitivity.ExoPlayerActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
+import com.mdlicht.zb.exampleproject.mvppractice.activity.MvpPracticeActivity
 import com.mdlicht.zb.exampleproject.rangechart.activity.RangeChartActivity
 import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWithAdActivity
 import com.mdlicht.zb.exampleproject.room.activity.RoomActivity
@@ -68,6 +69,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_exo_player) -> {
                 context.startActivity(Intent(context, ExoPlayerActivity::class.java))
+            }
+            context.getString(R.string.item_title_mvp_practice) -> {
+                context.startActivity(Intent(context, MvpPracticeActivity::class.java))
             }
         }
     }
