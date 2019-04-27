@@ -3,6 +3,8 @@ This repository includes some simple android examples
 - RxJava & RxAndroid
 - MVVM & Databinding
 
+<a href="https://play.google.com/store/apps/details?id=com.mdlicht.zb.exampleproject">Sample App DOWNLOAD (Google Play)</a>
+
 Example List
 ===============
 1. Social Login
