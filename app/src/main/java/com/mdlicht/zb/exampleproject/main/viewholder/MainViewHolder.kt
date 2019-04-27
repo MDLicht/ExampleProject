@@ -21,7 +21,9 @@ class MainViewHolder private constructor(itemView: View) : BaseViewHolder<Title>
     }
 
     override fun onBindView(position: Int, item: Title) {
-        binding.title = item.title
+        val pos = position + 1
+        val prefix = if(pos < 10) "0$pos" else "$pos"
+        binding.title = "$prefix. ${item.title}"
         binding.vm = ItemMainViewModel()
     }
 }
