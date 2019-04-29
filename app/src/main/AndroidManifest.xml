@@ -45,8 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".socialsnslogin.activity.SocialLoginActivity">
-        </activity>
         <activity android:name=".rxbasic.activity.RxBasicActivity">
         </activity>
         <activity android:name=".databinding.activity.DatabindingExampleActivity">

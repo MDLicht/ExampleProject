@@ -6,6 +6,7 @@ import android.view.View
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.baserecyclerview.activity.BaseRecyclerViewActivity
 import com.mdlicht.zb.exampleproject.collapsingtoolbar.activity.CollapsingToolbarActivity
+import com.mdlicht.zb.exampleproject.common.showToast
 import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutActivity
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
 import com.mdlicht.zb.exampleproject.exoplayer.acitivity.ExoPlayerActivity
@@ -16,7 +17,6 @@ import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWit
 import com.mdlicht.zb.exampleproject.room.activity.RoomActivity
 import com.mdlicht.zb.exampleproject.rxbasic.activity.RxBasicActivity
 import com.mdlicht.zb.exampleproject.simpletranslator.activity.SimpleTranslatorActivity
-import com.mdlicht.zb.exampleproject.socialsnslogin.activity.SocialLoginActivity
 import com.mdlicht.zb.exampleproject.xmlparsing.activity.XmlParsingActivity
 import com.mdlicht.zb.exampleproject.zigzagfilter.activity.ZigzagFilterActivity
 
@@ -30,7 +30,7 @@ class ItemMainViewModel : ViewModel() {
         val item = title.substring(title.indexOf(".")+1).trim()
         when(item) {
             context.getString(R.string.item_title_social_login) -> {
-                context.startActivity(Intent(context, SocialLoginActivity::class.java))
+                view.context.showToast(view.context.getString(R.string.msg_example_deleted))
             }
             context.getString(R.string.item_title_rx_basic) -> {
                 context.startActivity(Intent(context, RxBasicActivity::class.java))
