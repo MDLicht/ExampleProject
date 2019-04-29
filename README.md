@@ -7,7 +7,7 @@ This repository includes some simple android examples
 
 Example List
 ===============
-1. Social Login
+1. Social Login <b>* DELETED *</b>
 - Google, Facebook login with firebase
 
 <hr/>
