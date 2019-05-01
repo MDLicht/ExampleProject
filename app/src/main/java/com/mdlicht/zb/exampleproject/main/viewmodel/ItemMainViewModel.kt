@@ -12,6 +12,7 @@ import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActi
 import com.mdlicht.zb.exampleproject.exoplayer.acitivity.ExoPlayerActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
 import com.mdlicht.zb.exampleproject.mvppractice.activity.MvpPracticeActivity
+import com.mdlicht.zb.exampleproject.opencv.activity.OpenCvActivity
 import com.mdlicht.zb.exampleproject.rangechart.activity.RangeChartActivity
 import com.mdlicht.zb.exampleproject.recyclerviewwithad.activity.RecyclerViewWithAdActivity
 import com.mdlicht.zb.exampleproject.room.activity.RoomActivity
@@ -73,6 +74,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_mvp_practice) -> {
                 context.startActivity(Intent(context, MvpPracticeActivity::class.java))
+            }
+            context.getString(R.string.item_title_opencv) -> {
+                context.startActivity(Intent(context, OpenCvActivity::class.java))
             }
         }
     }

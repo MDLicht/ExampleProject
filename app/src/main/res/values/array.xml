@@ -16,6 +16,7 @@
         <item>@string/item_title_xml_parsing</item>
         <item>@string/item_title_exo_player</item>
         <item>@string/item_title_mvp_practice</item>
+        <item>@string/item_title_opencv</item>
     </string-array>
 
     <string-array name="exo_recycler_items">

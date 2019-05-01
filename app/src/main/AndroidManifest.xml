@@ -5,8 +5,20 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
 
     <uses-feature android:name="android.hardware.location.gps"/>
+
+    <supports-screens
+            android:resizeable="true"
+            android:smallScreens="true"
+            android:normalScreens="true"
+            android:largeScreens="true"
+            android:anyDensity="true"/>
 
     <application
             android:name=".common.MultiDexApp"
@@ -16,6 +28,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".opencv.activity.OpenCvActivity"
+                  android:theme="@style/OpenCvSampleStyle"
+                  android:screenOrientation="landscape"
+                  android:configChanges="keyboardHidden|orientation">
+        </activity>
         <activity android:name=".mvppractice.activity.MvpPracticeActivity">
         </activity>
         <activity android:name=".exoplayer.acitivity.VideoListActivity">
