@@ -1,25 +1,29 @@
 package com.mdlicht.zb.exampleproject.opencv.activity
 
 import android.annotation.TargetApi
-import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.databinding.DataBindingUtil
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.support.annotation.NonNull
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.WindowManager
+import com.googlecode.tesseract.android.TessBaseAPI
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.ActivityOpenCvBinding
-import kotlinx.android.synthetic.main.activity_open_cv.*
-import org.opencv.android.BaseLoaderCallback
-import org.opencv.android.CameraBridgeViewBase
-import org.opencv.android.LoaderCallbackInterface
-import org.opencv.android.OpenCVLoader
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import org.opencv.android.*
 import org.opencv.core.Mat
+import java.io.File
+import java.io.FileOutputStream
 
 
 class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewListener2 {
@@ -27,15 +31,20 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
 
     private var matInput: Mat? = null
     private var matResult: Mat? = null
+    private var matResultRoi: Mat? = null
 
     private var cameraIndex: Int = 0
+
+    private val compositeDisposable = CompositeDisposable()
+
+    private val tesseract: TessBaseAPI = TessBaseAPI()
 
     init {
         System.loadLibrary("opencv_java3")
         System.loadLibrary("native-lib")
     }
 
-    external fun ConvertRGBtoGray(matAddrInput: Long, matAddrResult: Long)
+    external fun processImage(matAddrInput: Long, matAddrResult: Long, matAddrResultRoi: Long)
 
     private val loaderCallback = object : BaseLoaderCallback(this) {
         override fun onManagerConnected(status: Int) {
@@ -53,10 +62,14 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        window.setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
-            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+            WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+        )
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_open_cv)
 
@@ -75,7 +88,20 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
                 setCameraIndex(cameraIndex)
                 loaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS)
             }
+
+            btnRotation.apply {
+                setOnClickListener {
+                    with(cameraView) {
+                        disableView()
+                        cameraIndex = if (cameraIndex == 0) 1 else 0
+                        setCameraIndex(cameraIndex)
+                        enableView()
+                    }
+                }
+            }
         }
+
+        initTesseract()
     }
 
     override fun onResume() {
@@ -90,6 +116,7 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
     }
 
     override fun onDestroy() {
+        compositeDisposable.clear()
         super.onDestroy()
         binding.cameraView.disableView()
     }
@@ -105,21 +132,50 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
     override fun onCameraFrame(inputFrame: CameraBridgeViewBase.CvCameraViewFrame): Mat {
         matInput = inputFrame.rgba()
 
-        //if ( matResult != null ) matResult.release(); fix 2018. 8. 18
-
         if (matResult == null)
             matResult = Mat(matInput!!.rows(), matInput!!.cols(), matInput!!.type())
 
-        ConvertRGBtoGray(matInput!!.nativeObjAddr, matResult!!.nativeObjAddr)
+        if (matResultRoi == null)
+            matResultRoi = Mat(matInput!!.rows(), matInput!!.cols(), matInput!!.type())
+
+        processImage(matInput!!.nativeObjAddr, matResult!!.nativeObjAddr, matResultRoi!!.nativeObjAddr)
 
         return matResult!!
+    }
+
+    fun initTesseract() {
+        // tesseract reads language from tesseract folder, create it if not exists.
+        val f = File(Environment.getExternalStorageDirectory().absolutePath + "/tesseract/tessdata")
+        if (!f.exists()) {
+            f.mkdirs()
+        }
+
+        val tessLangCode = "kor"
+        // copy the eng lang file from assets folder if not exists.
+        val f1 =
+            File(Environment.getExternalStorageDirectory().absolutePath + "/tesseract/tessdata/$tessLangCode.traineddata")
+        if (!f1.exists()) {
+            val ins = assets.open("tessdata/$tessLangCode.traineddata")
+            val fout = FileOutputStream(f1)
+            val buf = ByteArray(1024)
+            var len: Int
+
+            while (true) {
+                val byteCount = ins.read(buf)
+                if (byteCount < 0)
+                    break
+                fout.write(buf, 0, byteCount)
+            }
+            ins.close()
+            fout.close()
+        }
+        tesseract.init(Environment.getExternalStorageDirectory().absolutePath + "/tesseract", tessLangCode)
     }
 
 
     //여기서부턴 퍼미션 관련 메소드
     private val PERMISSIONS_REQUEST_CODE = 1000
     private var PERMISSIONS = arrayOf("android.permission.CAMERA")
-
 
     private fun hasPermissions(permissions: Array<String>): Boolean {
         var result: Int
@@ -139,35 +195,32 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
         return true
     }
 
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int, @NonNull permissions: Array<String>,
-        @NonNull grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         when (requestCode) {
-
             PERMISSIONS_REQUEST_CODE -> if (grantResults.isNotEmpty()) {
                 val cameraPermissionAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED
 
                 if (!cameraPermissionAccepted)
-                    showDialogForPermission("앱을 실행하려면 퍼미션을 허가하셔야합니다.")
+                    showDialogForPermission(getString(R.string.msg_need_permission))
             }
         }
     }
 
-
     @TargetApi(Build.VERSION_CODES.M)
     private fun showDialogForPermission(msg: String) {
-
         val builder = AlertDialog.Builder(this@OpenCvActivity)
-        builder.setTitle("알림")
+        builder.setTitle(getString(R.string.common_notice))
         builder.setMessage(msg)
         builder.setCancelable(false)
-        builder.setPositiveButton("예",
-            DialogInterface.OnClickListener { dialog, id -> requestPermissions(PERMISSIONS, PERMISSIONS_REQUEST_CODE) })
-        builder.setNegativeButton("아니오", DialogInterface.OnClickListener { arg0, arg1 -> finish() })
+        builder.setPositiveButton(getString(R.string.common_yes)) { _, _ ->
+            requestPermissions(
+                PERMISSIONS,
+                PERMISSIONS_REQUEST_CODE
+            )
+        }
+        builder.setNegativeButton(getString(R.string.common_no)) { _, _ -> finish() }
         builder.create().show()
     }
 }

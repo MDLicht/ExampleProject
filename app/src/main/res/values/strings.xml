@@ -2,9 +2,14 @@
     <string name="app_name">ExampleProject</string>
 
     <string name="common_yes">Yes</string>
+    <string name="common_no">No</string>
     <string name="common_cancel">Cancel</string>
+    <string name="common_rotation">Rotation</string>
+
+    <string name="common_notice">Notice</string>
 
     <string name="msg_example_deleted">This example is deleted.</string>
+    <string name="msg_need_permission">Need permission to run</string>
 
     <string name="item_title_social_login">Social Login</string>
     <string name="item_title_rx_basic">Rx Basic</string>
