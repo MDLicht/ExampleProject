@@ -139,3 +139,10 @@ Example List
 15. MVP Practice
 - Equal with 2.RxBasic
 - Constract interface, Presenter, View
+
+<hr/>
+
+16. OpenCV & Tesseract
+- OpenCV, Tesseract(Tess-two)
+- JavaCameraView
+- Capture image and Convert binary image (ROI) → Erode and Dilate (3*3) for Removing noise → Tess-two OCR
