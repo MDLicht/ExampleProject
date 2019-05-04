@@ -26,6 +26,8 @@ Java_com_mdlicht_zb_exampleproject_opencv_activity_OpenCvActivity_processImage(J
     cvtColor(roi, roi, CV_RGBA2GRAY);
     Mat bin = roi.clone();
     threshold(bin, bin, 127, 255, CV_THRESH_BINARY);
+    erode(bin, bin, (3, 3));
+    dilate(bin, bin, (3, 3));
     matResultRoi = bin;
     cvtColor(roi, matInput(rect), CV_GRAY2RGBA);
 

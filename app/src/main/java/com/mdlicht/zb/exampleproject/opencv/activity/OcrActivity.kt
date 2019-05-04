@@ -105,8 +105,7 @@ class OcrActivity : AppCompatActivity() {
             fout.close()
         }
         tesseract.pageSegMode = TessBaseAPI.PageSegMode.PSM_OSD_ONLY
-        tesseract.setVariable(TessBaseAPI.VAR_CHAR_BLACKLIST,"0123456789\"\'/\\,.!?@#$%^&*()-=_+|")
-        tesseract.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz")
+        tesseract.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789\"'/\\,.!?@#\$%^&*()-=_+|")
         tesseract.init(Environment.getExternalStorageDirectory().absolutePath + "/tesseract", tessLangCode)
     }
 }
