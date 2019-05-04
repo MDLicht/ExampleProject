@@ -3,6 +3,7 @@ package com.mdlicht.zb.exampleproject.common
 import android.databinding.BindingAdapter
 import android.databinding.InverseBindingAdapter
 import android.databinding.InverseBindingListener
+import android.graphics.Bitmap
 import android.support.v7.widget.AppCompatSpinner
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -50,6 +51,20 @@ object DataBindingAdapter {
             .asBitmap()
             .load(url)
             .apply(RequestOptions().centerCrop().placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher))
+            .thumbnail(0.1f)
+            .into(view)
+    }
+
+    /**
+     * BindingAdapter for setting image url on ImageView
+     */
+    @JvmStatic
+    @BindingAdapter("imageBitmap")
+    fun setImageBitmap(view: ImageView, bitmap: Bitmap?) {
+        Glide.with(view)
+            .asBitmap()
+            .load(bitmap)
+            .apply(RequestOptions().placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher))
             .thumbnail(0.1f)
             .into(view)
     }
