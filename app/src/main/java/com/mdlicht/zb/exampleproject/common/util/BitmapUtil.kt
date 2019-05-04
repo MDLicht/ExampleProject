@@ -41,6 +41,27 @@ object BitmapUtil {
         )
     }
 
+    fun getResizedBitmap(
+        bitmap: Bitmap,
+        reqWidth: Int,
+        reqHeight: Int,
+        format: Bitmap.CompressFormat,
+        quality: Int
+    ): Bitmap {
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(format, quality, stream)
+        val byteArr = stream.toByteArray()
+
+        val options = BitmapFactory.Options().apply {
+            inJustDecodeBounds = true
+        }
+        var b = BitmapFactory.decodeByteArray(byteArr, 0, byteArr.size, options)
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight)
+        options.inJustDecodeBounds = false
+
+        return BitmapFactory.decodeByteArray(byteArr, 0, byteArr.size, options)
+    }
+
     /**
      * 주어진 너비 및 높이에 맞춰 샘플링 크기를 계산하는 메소드
      * @param options 샘플링을 하려는 비트맵의 정보를 담고 있는 Option
@@ -60,7 +81,7 @@ object BitmapUtil {
 
             // Calculate the largest inSampleSize value that is a power of 2 and keeps both
             // height and width larger than the requested height and width.
-            while (halfHeight / inSampleSize > reqHeight && halfWidth / inSampleSize > reqWidth) {
+            while (halfHeight / inSampleSize >= reqHeight && halfWidth / inSampleSize >= reqWidth) {
                 inSampleSize *= 2
             }
         }
@@ -76,7 +97,7 @@ object BitmapUtil {
      * @param quality 생성된 이미지 품질
      * @return Base64로 변환된 이미지
      */
-    fun getBase64StringImg(
+    fun encodeBase64StringImg(
         imgPath: String,
         reqWidth: Int,
         reqHeight: Int,
@@ -98,6 +119,22 @@ object BitmapUtil {
         bitmap.compress(format, quality, stream)
         val byteArr = stream.toByteArray()
         return Base64.encodeToString(byteArr, Base64.DEFAULT)
+    }
+
+    fun encodeBase64StringImg(
+        image: Bitmap,
+        format: Bitmap.CompressFormat,
+        quality: Int
+    ): String {
+        val stream = ByteArrayOutputStream()
+        image.compress(format, quality, stream)
+        val byteArr = stream.toByteArray()
+        return Base64.encodeToString(byteArr, Base64.DEFAULT)
+    }
+
+    fun decodeBase64StringImg(base64: String): Bitmap {
+        val decodeByte = Base64.decode(base64, 0)
+        return BitmapFactory.decodeByteArray(decodeByte, 0, decodeByte.size)
     }
 
     /**

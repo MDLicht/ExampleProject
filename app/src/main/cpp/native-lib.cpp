@@ -15,16 +15,18 @@ Java_com_mdlicht_zb_exampleproject_opencv_activity_OpenCvActivity_processImage(J
     Mat &matResult = *(Mat *) matAddrResult;
     Mat &matResultRoi = *(Mat *) matAddrResultRoi;
 
-    int sy = (int) (matInput.rows * 0.15);
-    int sx = (int) (matInput.cols * 0.15);
-    int height = (int) (matInput.rows * 0.7);
-    int width = (int) (matInput.cols * 0.7);
+    int sy = (int) (matInput.rows * 0.3);
+    int sx = (int) (matInput.cols * 0.3);
+    int height = (int) (matInput.rows * 0.4);
+    int width = (int) (matInput.cols * 0.4);
     Rect rect = Rect(sx, sy, width, height);
     rectangle(matInput, rect, Scalar(255, 0, 0), 3);
 
     Mat roi = matInput(rect);
     cvtColor(roi, roi, CV_RGBA2GRAY);
-    matResultRoi = roi;
+    Mat bin = roi.clone();
+    threshold(bin, bin, 127, 255, CV_THRESH_BINARY);
+    matResultRoi = bin;
     cvtColor(roi, matInput(rect), CV_GRAY2RGBA);
 
     matResult = matInput;

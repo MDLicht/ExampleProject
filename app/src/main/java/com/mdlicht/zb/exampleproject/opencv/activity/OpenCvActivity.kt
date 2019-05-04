@@ -1,9 +1,12 @@
 package com.mdlicht.zb.exampleproject.opencv.activity
 
+import android.Manifest
 import android.annotation.TargetApi
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.databinding.DataBindingUtil
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -15,11 +18,13 @@ import android.util.Log
 import android.view.WindowManager
 import com.googlecode.tesseract.android.TessBaseAPI
 import com.mdlicht.zb.exampleproject.R
+import com.mdlicht.zb.exampleproject.common.util.BitmapUtil
 import com.mdlicht.zb.exampleproject.databinding.ActivityOpenCvBinding
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_open_cv.*
 import org.opencv.android.*
 import org.opencv.core.Mat
 import java.io.File
@@ -34,10 +39,6 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
     private var matResultRoi: Mat? = null
 
     private var cameraIndex: Int = 0
-
-    private val compositeDisposable = CompositeDisposable()
-
-    private val tesseract: TessBaseAPI = TessBaseAPI()
 
     init {
         System.loadLibrary("opencv_java3")
@@ -99,9 +100,17 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
                     }
                 }
             }
-        }
 
-        initTesseract()
+            btnCapture.apply {
+                setOnClickListener {
+                    cameraView.disableView()
+                    val bitmap =
+                        Bitmap.createBitmap(matResultRoi!!.cols(), matResultRoi!!.rows(), Bitmap.Config.ARGB_8888)
+                    Utils.matToBitmap(matResultRoi!!, bitmap)
+                    OcrActivity.startActivity(this@OpenCvActivity, BitmapUtil.getResizedBitmap(bitmap, bitmap.width / 2, bitmap.height / 2, Bitmap.CompressFormat.PNG, 100))
+                }
+            }
+        }
     }
 
     override fun onResume() {
@@ -110,15 +119,14 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
             Log.d(OpenCvActivity::class.java.name, "onResume :: Internal OpenCV library not found.")
             OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_2_0, this, loaderCallback)
         } else {
-            Log.d(OpenCvActivity::class.java.name, "onResum :: OpenCV library found inside package. Using it!")
+            Log.d(OpenCvActivity::class.java.name, "onResume :: OpenCV library found inside package. Using it!")
             loaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS)
         }
     }
 
-    override fun onDestroy() {
-        compositeDisposable.clear()
-        super.onDestroy()
+    override fun onStop() {
         binding.cameraView.disableView()
+        super.onStop()
     }
 
     override fun onCameraViewStarted(width: Int, height: Int) {
@@ -143,39 +151,9 @@ class OpenCvActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
         return matResult!!
     }
 
-    fun initTesseract() {
-        // tesseract reads language from tesseract folder, create it if not exists.
-        val f = File(Environment.getExternalStorageDirectory().absolutePath + "/tesseract/tessdata")
-        if (!f.exists()) {
-            f.mkdirs()
-        }
-
-        val tessLangCode = "kor"
-        // copy the eng lang file from assets folder if not exists.
-        val f1 =
-            File(Environment.getExternalStorageDirectory().absolutePath + "/tesseract/tessdata/$tessLangCode.traineddata")
-        if (!f1.exists()) {
-            val ins = assets.open("tessdata/$tessLangCode.traineddata")
-            val fout = FileOutputStream(f1)
-            val buf = ByteArray(1024)
-            var len: Int
-
-            while (true) {
-                val byteCount = ins.read(buf)
-                if (byteCount < 0)
-                    break
-                fout.write(buf, 0, byteCount)
-            }
-            ins.close()
-            fout.close()
-        }
-        tesseract.init(Environment.getExternalStorageDirectory().absolutePath + "/tesseract", tessLangCode)
-    }
-
-
     //여기서부턴 퍼미션 관련 메소드
     private val PERMISSIONS_REQUEST_CODE = 1000
-    private var PERMISSIONS = arrayOf("android.permission.CAMERA")
+    private var PERMISSIONS = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
     private fun hasPermissions(permissions: Array<String>): Boolean {
         var result: Int
