@@ -1,10 +1,11 @@
 package com.mdlicht.zb.exampleproject.databinding.viewmodel
 
+import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
 import com.mdlicht.zb.exampleproject.databinding.model.Color
 
-class DatabindingExampleViewModel {
+class DatabindingExampleViewModel: ViewModel() {
     val count: ObservableInt = ObservableInt(0)
     val text: ObservableField<String> = ObservableField()
     val color: ObservableField<Color> = ObservableField()
