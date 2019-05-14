@@ -8,18 +8,14 @@ import android.support.v7.widget.AppCompatSpinner
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.gms.maps.SupportMapFragment
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.adapter.DatabindingExampleSpinnerAdapter
 import com.mdlicht.zb.exampleproject.databinding.model.Color
 import com.mdlicht.zb.exampleproject.googlemap.adapter.BicycleRecyclerAdapter
-import com.mdlicht.zb.exampleproject.googlemap.model.Response
 import com.mdlicht.zb.exampleproject.googlemap.model.Row
-import com.mdlicht.zb.exampleproject.googlemap.viewmodel.GoogleMapViewModel
 import com.mdlicht.zb.exampleproject.room.adapter.UserRvAdapter
 import com.mdlicht.zb.exampleproject.room.model.User
 import com.mdlicht.zb.exampleproject.rxbasic.adapter.RxBasicRecyclerAdapter
@@ -46,7 +42,7 @@ object DataBindingAdapter {
      */
     @JvmStatic
     @BindingAdapter("imageUrl")
-    fun setImageUrl(view: ImageView, url: String) {
+    fun setImageUrl(view: ImageView, url: String?) {
         Glide.with(view)
             .asBitmap()
             .load(url)

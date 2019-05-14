@@ -11,6 +11,7 @@ import com.mdlicht.zb.exampleproject.constraintlayout.activity.ConstraintLayoutA
 import com.mdlicht.zb.exampleproject.databinding.activity.DatabindingExampleActivity
 import com.mdlicht.zb.exampleproject.exoplayer.acitivity.ExoPlayerActivity
 import com.mdlicht.zb.exampleproject.googlemap.activity.GoogleMapActivity
+import com.mdlicht.zb.exampleproject.koinexample.activity.KoinExampleActivity
 import com.mdlicht.zb.exampleproject.mvppractice.activity.MvpPracticeActivity
 import com.mdlicht.zb.exampleproject.opencv.activity.OpenCvActivity
 import com.mdlicht.zb.exampleproject.rangechart.activity.RangeChartActivity
@@ -77,6 +78,9 @@ class ItemMainViewModel : ViewModel() {
             }
             context.getString(R.string.item_title_opencv) -> {
                 context.startActivity(Intent(context, OpenCvActivity::class.java))
+            }
+            context.getString(R.string.item_title_koin) -> {
+                context.startActivity(Intent(context, KoinExampleActivity::class.java))
             }
         }
     }

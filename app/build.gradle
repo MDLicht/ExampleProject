@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.mdlicht.zb.exampleproject"
         minSdkVersion 19
@@ -61,6 +61,7 @@ android {
             path file('CMakeLists.txt')
         }
     }
+    buildToolsVersion = '28.0.3'
 // For Kotlin compilers:
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
@@ -122,5 +123,19 @@ dependencies {
     implementation project(path: ':opencv')
 
     implementation 'com.rmtheis:tess-two:9.0.0'
+
+//    // Dagger
+//    implementation "com.google.dagger:dagger:2.13"
+//    implementation 'com.google.dagger:dagger-android-support:2.13'
+//    kapt "com.google.dagger:dagger-compiler:2.13"
+
+    // Koin
+    def koin_version = '2.0.0-GA'
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // Koin Android Scope feature
+    implementation "org.koin:koin-android-scope:$koin_version"
+    // Koin Android ViewModel feature
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 }
 apply plugin: 'com.google.gms.google-services'

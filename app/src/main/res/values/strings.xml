@@ -28,6 +28,7 @@
     <string name="item_title_exo_player">Exo Player</string>
     <string name="item_title_mvp_practice">MVP Practice (Equal RxBasic)</string>
     <string name="item_title_opencv">OpenCV</string>
+    <string name="item_title_koin">Koin</string>
 
     <string name="sub_item_title_exo_single_video">Single Video</string>
     <string name="sub_item_title_exo_video_list">Video List</string>
