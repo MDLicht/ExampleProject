@@ -13,6 +13,7 @@ class MultiDexApp : MultiDexApplication() {
 
         startKoin {
             androidContext(this@MultiDexApp)
+            fileProperties()
             modules(listOf(appModule))
         }
     }

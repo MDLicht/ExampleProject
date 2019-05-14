@@ -18,7 +18,7 @@ val appModule = module {
         Retrofit.Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api.github.com/")
+            .baseUrl(getProperty("github_api_url") as String)
             .build()
             .create(RxBasicService::class.java)
     }
