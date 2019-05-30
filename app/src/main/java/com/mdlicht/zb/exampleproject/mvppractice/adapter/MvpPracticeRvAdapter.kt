@@ -5,13 +5,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.mdlicht.zb.exampleproject.R
+import com.mdlicht.zb.exampleproject.mvppractice.constract.AdapterContract
 import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubData
 import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubProfile
 import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubRepo
 import com.mdlicht.zb.exampleproject.mvppractice.viewholder.ContentsViewHolder
 import com.mdlicht.zb.exampleproject.mvppractice.viewholder.HeaderViewHolder
 
-class MvpPracticeRvAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MvpPracticeRvAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), AdapterContract.View, AdapterContract.Model {
     private val dataSet = mutableListOf<GitHubData>()
 
     enum class ItemType(val type: Int) {
@@ -19,11 +20,14 @@ class MvpPracticeRvAdapter(val context: Context) : RecyclerView.Adapter<Recycler
         TYPE_ITEM(1)
     }
 
-    fun setDataSet(dataSet: List<GitHubData>?) {
+    override fun setDataSet(dataSet: List<GitHubData>?) {
         this.dataSet.clear()
         if (dataSet != null) {
             this.dataSet.addAll(dataSet)
         }
+    }
+
+    override fun notifyGitHubDataSetChanged() {
         notifyDataSetChanged()
     }
 

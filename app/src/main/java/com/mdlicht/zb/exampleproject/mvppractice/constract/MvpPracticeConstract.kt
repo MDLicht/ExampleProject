@@ -6,7 +6,7 @@ import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubData
 interface MvpPracticeConstract {
     interface View {
         fun initView()
-        fun updateData(data: List<GitHubData>?)
+        fun getKeyword(): String
         fun showData()
         fun showEmpty()
     }

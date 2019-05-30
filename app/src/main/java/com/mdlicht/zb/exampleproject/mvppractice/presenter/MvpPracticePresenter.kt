@@ -1,6 +1,7 @@
 package com.mdlicht.zb.exampleproject.mvppractice.presenter
 
 import com.mdlicht.zb.exampleproject.mvppractice.api.RetrofitUtil
+import com.mdlicht.zb.exampleproject.mvppractice.constract.AdapterContract
 import com.mdlicht.zb.exampleproject.mvppractice.constract.MvpPracticeConstract
 import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubProfile
 import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubProfileAndRepos
@@ -11,8 +12,14 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 
-class MvpPracticePresenter(_view: MvpPracticeConstract.View): BasePresenter(), MvpPracticeConstract.Presenter {
+class MvpPracticePresenter(
+    _view: MvpPracticeConstract.View,
+    _adapterView: AdapterContract.View,
+    _adapterModel: AdapterContract.Model
+) : BasePresenter(), MvpPracticeConstract.Presenter {
     private var view: MvpPracticeConstract.View = _view
+    private var adapterView: AdapterContract.View = _adapterView
+    private var adapterModel: AdapterContract.Model = _adapterModel
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     init {
@@ -37,10 +44,21 @@ class MvpPracticePresenter(_view: MvpPracticeConstract.View): BasePresenter(), M
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     // If success, set dataset
-                    view.updateData(it)
+                    adapterModel.setDataSet(it)
+//                    view.updateData(it)
+                    adapterView.notifyGitHubDataSetChanged()
+
+                    if (it.isNullOrEmpty())
+                        view.showEmpty()
+                    else
+                        view.showData()
                 }, {
                     // if error, set null and show toast message
-                    view.updateData(null)
+                    adapterModel.setDataSet(null)
+//                    view.updateData(null)
+                    adapterView.notifyGitHubDataSetChanged()
+
+                    view.showEmpty()
                 })
         )
     }

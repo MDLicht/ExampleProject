@@ -14,6 +14,9 @@ import kotlinx.android.synthetic.main.activity_mvp_practice.*
 
 class MvpPracticeActivity : BaseActivity(), MvpPracticeConstract.View {
     private var presenter: MvpPracticePresenter? = null
+    private val rvAdapter: MvpPracticeRvAdapter by lazy {
+        MvpPracticeRvAdapter(this@MvpPracticeActivity)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,13 +25,13 @@ class MvpPracticeActivity : BaseActivity(), MvpPracticeConstract.View {
     }
 
     override fun initPresenter() {
-        presenter = MvpPracticePresenter(this)
+        presenter = MvpPracticePresenter(this, rvAdapter, rvAdapter)
     }
 
     override fun initView() {
-        etUserName.setOnEditorActionListener { v, actionId, event ->
+        etUserName.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                presenter?.searchRepository(v.text.toString())
+                presenter?.searchRepository(getKeyword())
                 true
             } else {
                 false
@@ -37,19 +40,12 @@ class MvpPracticeActivity : BaseActivity(), MvpPracticeConstract.View {
 
         rvList.apply {
             layoutManager = LinearLayoutManager(this@MvpPracticeActivity)
-            adapter = MvpPracticeRvAdapter(this@MvpPracticeActivity)
+            adapter = rvAdapter
             addItemDecoration(DividerItemDecoration(this@MvpPracticeActivity, DividerItemDecoration.VERTICAL))
         }
     }
 
-    override fun updateData(data: List<GitHubData>?) {
-        if(data.isNullOrEmpty()) {
-            showEmpty()
-        } else {
-            showData()
-            (rvList?.adapter as MvpPracticeRvAdapter).setDataSet(data)
-        }
-    }
+    override fun getKeyword(): String = etUserName.text.toString()
 
     override fun showData() {
         rvList.visibility = View.VISIBLE
