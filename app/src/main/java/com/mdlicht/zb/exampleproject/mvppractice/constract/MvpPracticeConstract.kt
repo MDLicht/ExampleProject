@@ -1,7 +1,5 @@
 package com.mdlicht.zb.exampleproject.mvppractice.constract
 
-import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubData
-
 
 interface MvpPracticeConstract {
     interface View {

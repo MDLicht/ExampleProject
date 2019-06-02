@@ -8,7 +8,7 @@ import android.view.inputmethod.EditorInfo
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.mvppractice.adapter.MvpPracticeRvAdapter
 import com.mdlicht.zb.exampleproject.mvppractice.constract.MvpPracticeConstract
-import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubData
+import com.mdlicht.zb.exampleproject.mvppractice.model.repository.GitHubRepositoryImpl
 import com.mdlicht.zb.exampleproject.mvppractice.presenter.MvpPracticePresenter
 import kotlinx.android.synthetic.main.activity_mvp_practice.*
 
@@ -25,7 +25,7 @@ class MvpPracticeActivity : BaseActivity(), MvpPracticeConstract.View {
     }
 
     override fun initPresenter() {
-        presenter = MvpPracticePresenter(this, rvAdapter, rvAdapter)
+        presenter = MvpPracticePresenter(this, rvAdapter, rvAdapter, GitHubRepositoryImpl())
     }
 
     override fun initView() {
