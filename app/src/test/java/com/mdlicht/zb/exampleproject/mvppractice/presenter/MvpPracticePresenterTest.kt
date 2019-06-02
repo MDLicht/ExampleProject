@@ -7,7 +7,9 @@ import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubProfile
 import com.mdlicht.zb.exampleproject.mvppractice.model.GitHubRepo
 import com.mdlicht.zb.exampleproject.mvppractice.model.repository.GitHubCallback
 import com.mdlicht.zb.exampleproject.mvppractice.model.repository.GitHubRepository
+import com.nhaarman.mockitokotlin2.capture
 import com.nhaarman.mockitokotlin2.doAnswer
+import com.nhaarman.mockitokotlin2.firstValue
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
@@ -15,10 +17,9 @@ import io.reactivex.schedulers.Schedulers
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentMatchers
-import org.mockito.Mock
-import org.mockito.Mockito
+import org.mockito.*
 import org.mockito.Mockito.*
+import java.lang.Exception
 
 class MvpPracticePresenterTest {
     @Mock
@@ -33,6 +34,9 @@ class MvpPracticePresenterTest {
     @Mock
     private lateinit var repository: GitHubRepository
 
+    @Captor
+    private lateinit var listener: ArgumentCaptor<GitHubCallback>
+
     lateinit var presenter: MvpPracticeConstract.Presenter
 
     private fun <T> any(): T {
@@ -44,16 +48,13 @@ class MvpPracticePresenterTest {
 
     @Before
     fun setUp() {
+        MockitoAnnotations.initMocks(this)
         RxJavaPlugins.setIoSchedulerHandler {
             Schedulers.trampoline()
         }
         RxAndroidPlugins.setInitMainThreadSchedulerHandler {
             Schedulers.trampoline()
         }
-        view = mock(MvpPracticeConstract.View::class.java)
-        adapterView = mock(AdapterContract.View::class.java)
-        adapterModel = mock(AdapterContract.Model::class.java)
-        repository = mock(GitHubRepository::class.java)
         presenter = MvpPracticePresenter(view, adapterView, adapterModel, repository)
     }
 
@@ -62,12 +63,12 @@ class MvpPracticePresenterTest {
         verify(view).initView()
     }
 
-//    @Test
-//    fun test_call_repository() {
-//        `when`(view.getKeyword()).thenReturn("mdlicht")
-//        presenter.searchRepository(view.getKeyword())
-//        verify(repository).searchRepository(view.getKeyword(), any())
-//    }
+    @Test
+    fun test_call_repository() {
+        `when`(view.getKeyword()).thenReturn("mdlicht")
+        presenter.searchRepository(view.getKeyword())
+        verify(repository).searchRepository(eq(view.getKeyword()) ?: "mdlicht", capture(listener))
+    }
 
     @Test
     fun test_load_github_data_success__exist_user_name() {
@@ -78,18 +79,17 @@ class MvpPracticePresenterTest {
         )
 
         `when`(view.getKeyword()).thenReturn("mdlicht")
-        val listener = mock(GitHubCallback::class.java)
-        `when`(repository.searchRepository(view.getKeyword(), listener)).thenAnswer {
-            val callback: GitHubCallback = it.getArgument(1)
-            callback.onLoadComplete(github)
-        }
 
         presenter.searchRepository(view.getKeyword())
+
+        val keyword: String = view.getKeyword()
+        verify(repository).searchRepository(eq(keyword) ?: "mdlicht", capture(listener))
+        listener.firstValue.onLoadComplete(github)
 
         verify(view).showData()
         verify(view, never()).showEmpty()
         verify(adapterModel).setDataSet(anyList())
-//        verify(adapterModel).setDataSet(eq(github))
+        verify(adapterModel).setDataSet(eq(github))
         verify(adapterView).notifyGitHubDataSetChanged()
     }
 
@@ -98,6 +98,10 @@ class MvpPracticePresenterTest {
         `when`(view.getKeyword()).thenReturn("!@#$%^^&*()_!@#$%^&*()")
 
         presenter.searchRepository(view.getKeyword())
+
+        val keyword: String = view.getKeyword()
+        verify(repository).searchRepository(eq(keyword) ?: "mdlicht", capture(listener))
+        listener.firstValue.onLoadFail(Exception())
 
         verify(view, never()).showData()
         verify(view).showEmpty()
