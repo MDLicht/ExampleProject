@@ -6,7 +6,7 @@
     <data>
         <variable name="vm" type="com.mdlicht.zb.exampleproject.simpletranslator.viewmodel.TranslatorViewModel"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".simpletranslator.activity.SimpleTranslatorActivity">
@@ -42,5 +42,5 @@
                 android:id="@+id/imageView2" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/etSrc"
                 app:layout_constraintHorizontal_bias="0.5" app:layout_constraintBottom_toTopOf="@+id/tvDest"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

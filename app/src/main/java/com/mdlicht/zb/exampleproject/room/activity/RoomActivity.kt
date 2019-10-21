@@ -1,14 +1,13 @@
 package com.mdlicht.zb.exampleproject.room.activity
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.content.DialogInterface
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.ActivityRoomBinding
 import com.mdlicht.zb.exampleproject.room.adapter.UserRvAdapter

@@ -1,8 +1,8 @@
 package com.mdlicht.zb.exampleproject.common
 
 import android.content.Context
-import android.support.multidex.MultiDex
-import android.support.multidex.MultiDexApplication
+import androidx.multidex.MultiDex
+import androidx.multidex.MultiDexApplication
 import com.mdlicht.zb.exampleproject.koinexample.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

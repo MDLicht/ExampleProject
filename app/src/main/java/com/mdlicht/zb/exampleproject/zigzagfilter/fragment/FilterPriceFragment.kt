@@ -1,8 +1,8 @@
 package com.mdlicht.zb.exampleproject.zigzagfilter.fragment
 
 
-import android.databinding.DataBindingUtil
-import android.databinding.ObservableInt
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ObservableInt
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.RectF

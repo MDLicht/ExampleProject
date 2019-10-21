@@ -7,12 +7,12 @@
         <variable name="vm" type="com.mdlicht.zb.exampleproject.databinding.viewmodel.DatabindingExampleViewModel"/>
         <import type="android.graphics.Color"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".databinding.activity.DatabindingExampleActivity">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_round_box"
@@ -33,7 +33,7 @@
                     android:padding="8dp" android:textStyle="bold" android:textColor="@android:color/white"
                     app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"/>
-            <android.support.v7.widget.AppCompatSpinner
+            <androidx.appcompat.widget.AppCompatSpinner
                     android:layout_width="0dp"
                     android:layout_height="20dp"
                     app:selectedValue="@={vm.color}"
@@ -49,8 +49,8 @@
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="16dp" android:textStyle="bold"/>
-        </android.support.constraint.ConstraintLayout>
-        <android.support.constraint.ConstraintLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="141dp"
                 android:background="@drawable/shape_round_box"
@@ -89,8 +89,8 @@
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="16dp" android:textStyle="bold"/>
-        </android.support.constraint.ConstraintLayout>
-        <android.support.constraint.ConstraintLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_round_box"
@@ -141,6 +141,6 @@
                     app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="16dp" android:textStyle="bold"/>
-        </android.support.constraint.ConstraintLayout>
-    </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

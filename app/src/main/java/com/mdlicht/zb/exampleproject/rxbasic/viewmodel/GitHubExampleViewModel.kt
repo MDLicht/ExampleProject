@@ -1,10 +1,10 @@
 package com.mdlicht.zb.exampleproject.rxbasic.viewmodel
 
-import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.OnLifecycleEvent
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableField
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableField
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo

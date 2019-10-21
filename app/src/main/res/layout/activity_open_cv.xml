@@ -6,7 +6,7 @@
     <data>
 
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".opencv.activity.OpenCvActivity">
@@ -32,5 +32,5 @@
                 app:layout_constraintTop_toTopOf="@+id/cameraView"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

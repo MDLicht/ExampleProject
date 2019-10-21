@@ -1,12 +1,12 @@
 package com.mdlicht.zb.exampleproject.constraintlayout.activity
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.ConstraintSet
-import android.support.v7.widget.LinearLayoutManager
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.transition.TransitionManager
 import android.view.View
 import android.widget.Toast

@@ -1,7 +1,7 @@
 package com.mdlicht.zb.exampleproject.zigzagfilter.viewmodel
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import android.os.Build
 import android.text.Html
 import android.text.Spanned

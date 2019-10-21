@@ -1,6 +1,6 @@
 package com.mdlicht.zb.exampleproject.room.model.repository
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.content.Context
 import com.mdlicht.zb.exampleproject.room.database.Database
 import com.mdlicht.zb.exampleproject.room.model.User

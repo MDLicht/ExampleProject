@@ -6,7 +6,7 @@
     <data>
 
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".rangechart.activity.RangeChartActivity">
@@ -73,5 +73,5 @@
                 app:layout_constraintStart_toStartOf="@+id/container"
                 app:layout_constraintEnd_toEndOf="@+id/container"
                 android:id="@+id/rangebar"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

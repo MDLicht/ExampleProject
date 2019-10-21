@@ -1,8 +1,8 @@
 package com.mdlicht.zb.exampleproject.room.viewmodel
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableField
 import android.text.TextUtils
 import com.mdlicht.zb.exampleproject.room.model.User
 import com.mdlicht.zb.exampleproject.room.model.repository.UserRepository

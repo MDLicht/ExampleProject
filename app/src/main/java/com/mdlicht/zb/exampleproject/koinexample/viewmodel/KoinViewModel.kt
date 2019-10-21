@@ -1,7 +1,7 @@
 package com.mdlicht.zb.exampleproject.koinexample.viewmodel
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.mdlicht.zb.exampleproject.koinexample.repository.KoinRepository
 import com.mdlicht.zb.exampleproject.rxbasic.model.GitHubData
 

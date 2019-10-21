@@ -1,11 +1,11 @@
 package com.mdlicht.zb.exampleproject.common
 
-import android.databinding.BindingAdapter
-import android.databinding.InverseBindingAdapter
-import android.databinding.InverseBindingListener
+import androidx.databinding.BindingAdapter
+import androidx.databinding.InverseBindingAdapter
+import androidx.databinding.InverseBindingListener
 import android.graphics.Bitmap
-import android.support.v7.widget.AppCompatSpinner
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.widget.AppCompatSpinner
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ImageView

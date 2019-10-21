@@ -7,12 +7,12 @@
         <variable name="vm" type="com.mdlicht.zb.exampleproject.room.viewmodel.RoomViewModel"/>
         <import type="android.view.View"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".room.activity.RoomActivity">
 
-        <android.support.design.widget.FloatingActionButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true" app:srcCompat="@mipmap/ic_launcher"
@@ -34,7 +34,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:visibility="@{vm.dataSet.size() == 0 ? View.VISIBLE : View.GONE}"/>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -42,5 +42,5 @@
                 app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/rvUser"
                 app:userDataSet="@{vm.dataSet}"
                 android:visibility="@{vm.dataSet.size() == 0 ? View.GONE : View.VISIBLE}"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

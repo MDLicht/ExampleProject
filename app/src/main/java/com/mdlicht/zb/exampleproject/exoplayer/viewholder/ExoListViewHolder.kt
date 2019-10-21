@@ -1,7 +1,7 @@
 package com.mdlicht.zb.exampleproject.exoplayer.viewholder
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

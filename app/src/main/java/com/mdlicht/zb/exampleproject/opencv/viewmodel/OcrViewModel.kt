@@ -1,8 +1,8 @@
 package com.mdlicht.zb.exampleproject.opencv.viewmodel
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.databinding.ObservableField
+import androidx.lifecycle.AndroidViewModel
+import androidx.databinding.ObservableField
 import android.graphics.Bitmap
 import android.os.Environment
 import com.bumptech.glide.Glide

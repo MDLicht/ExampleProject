@@ -1,17 +1,17 @@
 package com.mdlicht.zb.exampleproject.googlemap.viewmodel
 
 import android.Manifest
-import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.OnLifecycleEvent
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.ViewModel
 import android.content.pm.PackageManager
-import android.databinding.ObservableArrayList
-import android.databinding.ObservableList
+import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableList
 import android.location.Location
 import android.location.LocationListener
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.util.Log
 import android.view.View
 import com.google.android.gms.maps.CameraUpdateFactory

@@ -1,11 +1,11 @@
 package com.mdlicht.zb.exampleproject.xmlparsing.activity
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.baserecyclerview.adapter.BaseRecyclerAdapter
 import com.mdlicht.zb.exampleproject.databinding.ActivityXmlParsingBinding

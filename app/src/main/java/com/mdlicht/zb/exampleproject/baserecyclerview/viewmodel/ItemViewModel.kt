@@ -1,6 +1,6 @@
 package com.mdlicht.zb.exampleproject.baserecyclerview.viewmodel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import android.view.View
 import com.mdlicht.zb.exampleproject.common.showToast
 

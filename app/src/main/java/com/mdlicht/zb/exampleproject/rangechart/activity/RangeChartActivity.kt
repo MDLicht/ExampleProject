@@ -1,11 +1,11 @@
 package com.mdlicht.zb.exampleproject.rangechart.activity
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.RectF
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.FrameLayout
 import com.db.chart.model.LineSet
 import com.db.chart.renderer.AxisRenderer

@@ -1,6 +1,6 @@
 package com.mdlicht.zb.exampleproject.main.viewmodel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import android.content.Intent
 import android.view.View
 import com.mdlicht.zb.exampleproject.R

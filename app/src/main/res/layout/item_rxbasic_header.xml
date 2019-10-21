@@ -5,7 +5,7 @@
         <variable name="vm" type="com.mdlicht.zb.exampleproject.rxbasic.viewmodel.GitHubProfileViewModel"/>
         <variable name="profile" type="com.mdlicht.zb.exampleproject.rxbasic.model.GitHubProfile"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -34,5 +34,5 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvUserName" app:layout_constraintEnd_toEndOf="@+id/tvUserName"
                 app:layout_constraintBottom_toBottomOf="@+id/ivProfilePhoto"
                 android:onClick="@{view -> vm.onLinkClick(view, profile.html_url)}"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,7 +5,7 @@
         <variable name="vm" type="com.mdlicht.zb.exampleproject.rxbasic.viewmodel.GitHubRepoViewModel"/>
         <variable name="repo" type="com.mdlicht.zb.exampleproject.rxbasic.model.GitHubRepo"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{view -> vm.onRepoClick(view, repo.html_url)}">
@@ -26,5 +26,5 @@
                 android:id="@+id/tvStarCount" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
                 app:layout_constraintTop_toTopOf="@+id/tvRepoName"
                 app:layout_constraintBottom_toBottomOf="@+id/tvRepoName" android:textColor="@color/colorAccent"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

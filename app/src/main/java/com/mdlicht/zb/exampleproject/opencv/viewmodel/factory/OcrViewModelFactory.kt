@@ -1,8 +1,8 @@
 package com.mdlicht.zb.exampleproject.opencv.viewmodel.factory
 
 import android.app.Application
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import android.graphics.Bitmap
 import com.mdlicht.zb.exampleproject.opencv.viewmodel.OcrViewModel
 

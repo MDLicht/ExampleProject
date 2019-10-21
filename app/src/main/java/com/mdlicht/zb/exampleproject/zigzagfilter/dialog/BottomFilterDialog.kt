@@ -2,17 +2,15 @@ package com.mdlicht.zb.exampleproject.zigzagfilter.dialog
 
 
 import android.content.Context
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.design.widget.BottomSheetDialogFragment
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
-
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.databinding.FragmentBottomFilterDialogBinding
 import com.mdlicht.zb.exampleproject.zigzagfilter.adapter.BottomFilterPagerAdapter
@@ -42,7 +40,7 @@ class BottomFilterDialog : BottomSheetDialogFragment(), ViewPager.OnPageChangeLi
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnFilterChangedListener)
             onFilterChangedListener = context

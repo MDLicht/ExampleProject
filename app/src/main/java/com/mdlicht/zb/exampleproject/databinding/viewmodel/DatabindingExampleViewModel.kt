@@ -1,8 +1,8 @@
 package com.mdlicht.zb.exampleproject.databinding.viewmodel
 
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableField
-import android.databinding.ObservableInt
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import com.mdlicht.zb.exampleproject.databinding.model.Color
 
 class DatabindingExampleViewModel: ViewModel() {

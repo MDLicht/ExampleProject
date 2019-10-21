@@ -1,12 +1,12 @@
 package com.mdlicht.zb.exampleproject.simpletranslator.viewmodel
 
-import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.OnLifecycleEvent
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.ViewModel
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.databinding.ObservableField
+import androidx.databinding.ObservableField
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast

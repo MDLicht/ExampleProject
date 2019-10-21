@@ -1,6 +1,6 @@
 package com.mdlicht.zb.exampleproject.koinexample.repository
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mdlicht.zb.exampleproject.rxbasic.api.RxBasicService
 import com.mdlicht.zb.exampleproject.rxbasic.model.GitHubData
 import com.mdlicht.zb.exampleproject.rxbasic.model.GitHubProfile

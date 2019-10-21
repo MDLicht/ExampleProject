@@ -1,8 +1,8 @@
 package com.mdlicht.zb.exampleproject.rxbasic.viewmodel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import android.content.Intent
-import android.databinding.ObservableField
+import androidx.databinding.ObservableField
 import android.net.Uri
 import android.view.View
 import com.mdlicht.zb.exampleproject.rxbasic.model.GitHubProfile

@@ -1,9 +1,9 @@
 package com.mdlicht.zb.exampleproject.collapsingtoolbar.activity
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mdlicht.zb.exampleproject.R
 import com.mdlicht.zb.exampleproject.collapsingtoolbar.adapter.CollapsingToolbarRecycleAdapter
 import com.mdlicht.zb.exampleproject.databinding.ActivityCollapsingToolbarBinding

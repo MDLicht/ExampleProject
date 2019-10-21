@@ -1,6 +1,6 @@
 package com.mdlicht.zb.exampleproject.baserecyclerview.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.mdlicht.zb.exampleproject.baserecyclerview.model.BaseModel
 import com.mdlicht.zb.exampleproject.baserecyclerview.viewholder.BaseViewHolder
 

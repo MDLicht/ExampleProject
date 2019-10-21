@@ -1,7 +1,7 @@
 package com.mdlicht.zb.exampleproject.xmlparsing.viewmodel
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.mdlicht.zb.exampleproject.xmlparsing.api.RetrofitXmlUtil
 import com.mdlicht.zb.exampleproject.xmlparsing.model.Note
 import io.reactivex.android.schedulers.AndroidSchedulers

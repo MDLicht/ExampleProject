@@ -1,10 +1,10 @@
 package com.mdlicht.zb.exampleproject.collapsingtoolbar.view
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
-import android.support.constraint.ConstraintSet
-import android.support.design.widget.AppBarLayout
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import android.util.AttributeSet
+import com.google.android.material.appbar.AppBarLayout
 import com.mdlicht.zb.exampleproject.R
 
 /**
@@ -15,8 +15,10 @@ class CollapsingConstraintLayout: ConstraintLayout, AppBarLayout.OnOffsetChanged
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    val openConstraintSet: ConstraintSet by lazy { ConstraintSet().apply { load(context, R.layout.header_collapsing_toolbar) } }
-    val closeConstraintSet: ConstraintSet by lazy { ConstraintSet().apply { load(context, R.layout.header_collapsing_toolbar2) } }
+    val openConstraintSet: ConstraintSet by lazy { ConstraintSet()
+        .apply { load(context, R.layout.header_collapsing_toolbar) } }
+    val closeConstraintSet: ConstraintSet by lazy { ConstraintSet()
+        .apply { load(context, R.layout.header_collapsing_toolbar2) } }
 
     private var transitionThreshhold = 0.35f
     private var lastPosition = 0

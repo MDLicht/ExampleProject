@@ -1,6 +1,6 @@
 package com.mdlicht.zb.exampleproject.main.viewholder
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

@@ -1,6 +1,6 @@
 package com.mdlicht.zb.exampleproject.koinexample.di
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.mdlicht.zb.exampleproject.databinding.ActivityKoinExampleBinding
 import com.mdlicht.zb.exampleproject.koinexample.activity.KoinExampleActivity

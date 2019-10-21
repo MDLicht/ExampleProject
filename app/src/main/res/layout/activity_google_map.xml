@@ -5,7 +5,7 @@
     <data>
         <variable name="vm" type="com.mdlicht.zb.exampleproject.googlemap.viewmodel.GoogleMapViewModel"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".googlemap.activity.GoogleMapActivity">
@@ -22,5 +22,5 @@
                 android:layout_marginBottom="16dp" app:layout_constraintBottom_toBottomOf="parent"
                 android:background="@android:color/white" android:padding="8dp"
                 android:onClick="@{view -> vm.onGpsClick(view)}"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

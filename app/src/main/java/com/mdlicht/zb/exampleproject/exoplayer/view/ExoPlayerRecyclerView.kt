@@ -2,8 +2,8 @@ package com.mdlicht.zb.exampleproject.exoplayer.view
 
 import android.content.Context
 import android.net.Uri
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
@@ -36,13 +36,13 @@ class ExoPlayerRecyclerView: RecyclerView {
 
     private var rowParent: View? = null
 
-    constructor(context: Context?) : super(context) {
+    constructor(context: Context) : super(context) {
         initialize()
     }
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         initialize()
     }
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
         initialize()
     }
 
@@ -82,7 +82,7 @@ class ExoPlayerRecyclerView: RecyclerView {
         })
 
         addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if(newState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
                     playVideo()
@@ -93,7 +93,7 @@ class ExoPlayerRecyclerView: RecyclerView {
         })
 
         addOnChildAttachStateChangeListener(object : OnChildAttachStateChangeListener {
-            override fun onChildViewDetachedFromWindow(view: View?) {
+            override fun onChildViewDetachedFromWindow(view: View) {
                 if(isAddedVideo && rowParent != null && rowParent?.equals(view)!!) {
                     removeVideoView(playerView!!)
                     currentPlayItem = -1
@@ -101,7 +101,7 @@ class ExoPlayerRecyclerView: RecyclerView {
                 }
             }
 
-            override fun onChildViewAttachedToWindow(view: View?) {
+            override fun onChildViewAttachedToWindow(view: View) {
 
             }
         })

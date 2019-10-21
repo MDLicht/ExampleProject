@@ -7,7 +7,7 @@
         <variable name="vm" type="com.mdlicht.zb.exampleproject.zigzagfilter.viewmodel.ZigZagFilterViewModel"/>
         <variable name="activity" type="com.mdlicht.zb.exampleproject.zigzagfilter.activity.ZigzagFilterActivity"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".zigzagfilter.activity.ZigzagFilterActivity">
@@ -56,5 +56,5 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvColorTitle"
                 app:layout_constraintStart_toStartOf="@+id/tvColorTitle"
                 app:layout_constraintEnd_toEndOf="@+id/tvPrice" android:layout_marginTop="8dp"/>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

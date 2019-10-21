@@ -4,7 +4,7 @@
     <data>
         <variable name="fragment" type="com.mdlicht.zb.exampleproject.zigzagfilter.fragment.FilterPriceFragment"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".zigzagfilter.fragment.FilterPriceFragment">
@@ -74,5 +74,5 @@
                 app:layout_constraintEnd_toEndOf="@+id/container"
                 android:id="@+id/rangebar"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
