@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "678337772215",
+    "firebase_url": "https://exampleproject-e67ae.firebaseio.com",
+    "project_id": "exampleproject-e67ae",
+    "storage_bucket": "exampleproject-e67ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678337772215:android:199dc475bf3ae226",
+        "android_client_info": {
+          "package_name": "com.mdlicht.zb.exampleproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678337772215-pfrddr4tlbep1dktihh6d0k1cn8nua39.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mdlicht.zb.exampleproject",
+            "certificate_hash": "263893bbdac4c33ba89248d100d1110648eee61e"
+          }
+        },
+        {
+          "client_id": "678337772215-etpqgoq0lgvni8n9thm9tduv86t5hkh0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mdlicht.zb.exampleproject",
+            "certificate_hash": "e065e14f3af5f44e4becacda90cfa928141b508f"
+          }
+        },
+        {
+          "client_id": "678337772215-5ulhiir068fbm16bveqm57cbbjapt23f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPGs08KMQZ_u-8YESwGUQfvLnXF2atW_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678337772215-5ulhiir068fbm16bveqm57cbbjapt23f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
